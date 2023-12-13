@@ -1,0 +1,50 @@
+{{ define "config" }}
+
+<body>
+    <div class="container mt-5">
+    <div class="row">
+        <div class="col">
+        <table class="table">
+            <form action="/config_save/" method="post">
+                <tr>
+                    <td>Host</td>
+                    <td><input name="host" type="text" class="form-control" value="{{ .Config.Host }}"></td>
+                </tr>
+                <tr>
+                    <td>Port</td>
+                    <td><input name="port" type="text" class="form-control" value="{{ .Config.Port }}"></td>
+                </tr>
+                <tr>
+                    <td>Theme</td>
+                    <td><select name="theme" class="form-select">
+                        <option selected>{{ .Config.Theme }}</option>
+                        {{ range .Themes }}
+                            <option value="{{ . }}">{{ . }}</option>
+                        {{ end }}
+                    </select></td>
+                </tr>
+                <tr>
+                    <td>Color mode</td>
+                    <td><select name="color" class="form-select">
+                        <option selected>{{ .Config.Color }}</option>
+                        <option value="light">light</option>
+                        <option value="dark">dark</option>
+                    </select></td>
+                </tr>
+            </form>
+        </table>
+        </div>
+        <div class="col">
+            <div class="alert alert-info" role="alert">
+                <p>● After changing <b>Host</b> or <b>Port</b> you need to restart the app</p>
+                <p>● <b>Button Width</b> can be set in <b>px</b> or <b>em</b> to adjust buttons to theme. Example: 180px</p>
+                <p>● <b>On color</b> and <b>Off color</b> - online and offline host colors</p>
+                <p>● <b>Webpage refresh</b> - refresh interval for Tabs and Uptime (seconds). Default: 60. To disable refresh, put in this field something, that is not number (Example: off)</p>
+            </div>
+        </div>
+    </div>
+    </div>
+        
+
+{{ template "footer" }}
+{{ end }}

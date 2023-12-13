@@ -1,0 +1,13 @@
+version: "3"
+services:
+  AppTemplate:
+    image: aceberg/AppTemplate   
+    restart: unless-stopped
+    volumes:
+    - ~/.dockerdata/AppTemplate:/data/AppTemplate
+    environment:
+      TZ: Asia/Novosibirsk    # required, default: ""
+      HOST: "0.0.0.0"         # optional, default: 0.0.0.0
+      PORT: "8830"            # optional, default: 8830
+      THEME: "simplex"        # optional, default: simplex
+      COLOR: "dark"           # optional, default: dark

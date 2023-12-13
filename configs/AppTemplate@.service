@@ -1,0 +1,13 @@
+[Unit]
+Description=AppTemplate
+Documentation=https://github.com/aceberg/AppTemplate
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=%i
+ExecStart=/usr/bin/AppTemplate -c /home/%i/.config/AppTemplate/config.yaml
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
