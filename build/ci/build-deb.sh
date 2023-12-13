@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PKGNAME=AppTemplate
+PKGNAME=ExerciseDiary
 PKGDESC="Write app description here"
 PKGDIR=$PKGNAME-$1-0_all
 

@@ -1,4 +1,4 @@
-PKG_NAME=AppTemplate
+PKG_NAME=ExerciseDiary
 USR_NAME=aceberg
 
 mod:

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PKGNAME=AppTemplate
+PKGNAME=ExerciseDiary
 PKGDIR=/opt/$PKGNAME
 
 cd cmd/$PKGNAME/ && CGO_ENABLED=0 go build -o ../../$PKGNAME .

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PKGNAME=AppTemplate
+PKGNAME=ExerciseDiary
 
 cp $PKGNAME /usr/bin/
 cp $PKGNAME.service /lib/systemd/system/

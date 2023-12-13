@@ -1,12 +1,12 @@
 [Unit]
-Description=AppTemplate
-Documentation=https://github.com/aceberg/AppTemplate
+Description=ExerciseDiary
+Documentation=https://github.com/aceberg/ExerciseDiary
 After=network-online.target
 Wants=network-online.target
 
 [Service]
 User=%i
-ExecStart=/usr/bin/AppTemplate -c /home/%i/.config/AppTemplate/config.yaml
+ExecStart=/usr/bin/ExerciseDiary -c /home/%i/.config/ExerciseDiary/config.yaml
 Restart=on-failure
 
 [Install]

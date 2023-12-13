@@ -1,10 +1,10 @@
 version: "3"
 services:
-  AppTemplate:
-    image: aceberg/AppTemplate   
+  ExerciseDiary:
+    image: aceberg/ExerciseDiary   
     restart: unless-stopped
     volumes:
-    - ~/.dockerdata/AppTemplate:/data/AppTemplate
+    - ~/.dockerdata/ExerciseDiary:/data/ExerciseDiary
     environment:
       TZ: Asia/Novosibirsk    # required, default: ""
       HOST: "0.0.0.0"         # optional, default: 0.0.0.0

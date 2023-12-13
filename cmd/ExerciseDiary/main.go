@@ -5,12 +5,12 @@ import (
 
 	_ "time/tzdata"
 
-	"github.com/aceberg/AppTemplate/internal/check"
-	"github.com/aceberg/AppTemplate/internal/web"
+	"github.com/aceberg/ExerciseDiary/internal/check"
+	"github.com/aceberg/ExerciseDiary/internal/web"
 )
 
-const confPath = "/data/AppTemplate/config.yaml"
-const yamlPath = "/data/AppTemplate/board.yaml"
+const confPath = "/data/ExerciseDiary/config.yaml"
+const yamlPath = "/data/ExerciseDiary/board.yaml"
 const nodePath = ""
 
 func main() {
