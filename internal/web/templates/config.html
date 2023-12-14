@@ -1,11 +1,11 @@
-{{ define "config" }}
+{{ define "config.html" }}
 
 <body>
     <div class="container mt-5">
     <div class="row">
         <div class="col">
         <table class="table">
-            <form action="/config_save/" method="post">
+            <form action="/config/" method="post">
                 <tr>
                     <td>Host</td>
                     <td><input name="host" type="text" class="form-control" value="{{ .Config.Host }}"></td>
@@ -31,6 +31,10 @@
                         <option value="dark">dark</option>
                     </select></td>
                 </tr>
+                <tr>
+                    <td><button type="submit" class="btn btn-primary">Save</button></td>
+                    <td></td>
+                </tr>
             </form>
         </table>
         </div>
@@ -46,5 +50,5 @@
     </div>
         
 
-{{ template "footer" }}
+{{ template "footer.html" }}
 {{ end }}

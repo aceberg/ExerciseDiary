@@ -33,7 +33,9 @@ func Gui(confPath, yamlPath, nodePath string) {
 	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
 	router.LoadHTMLGlob(TemplPath + "/*.html")
-	router.GET("/", indexHandler) // index.go
+	router.GET("/", indexHandler)              // index.go
+	router.GET("/config/", configHandler)      // config.go
+	router.POST("/config/", saveConfigHandler) // config.go
 
 	err := router.Run(address)
 	check.IfError(err)
