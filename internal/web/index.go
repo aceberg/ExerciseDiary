@@ -10,7 +10,7 @@ import (
 
 func indexHandler(c *gin.Context) {
 	var guiData models.GuiData
-	guiData.Config = AppConfig
+	guiData.Config = appConfig
 	guiData.Example = "This is index page"
 
 	c.HTML(http.StatusOK, "header.html", guiData)

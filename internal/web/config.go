@@ -15,7 +15,7 @@ import (
 func configHandler(c *gin.Context) {
 	var guiData models.GuiData
 
-	guiData.Config = AppConfig
+	guiData.Config = appConfig
 
 	guiData.Themes = []string{"cerulean", "cosmo", "cyborg", "darkly", "emerald", "flatly", "grass", "journal", "litera", "lumen", "lux", "materia", "minty", "morph", "pulse", "quartz", "sand", "sandstone", "simplex", "sketchy", "slate", "solar", "spacelab", "superhero", "united", "vapor", "yeti", "zephyr"}
 
@@ -25,14 +25,14 @@ func configHandler(c *gin.Context) {
 
 func saveConfigHandler(c *gin.Context) {
 
-	AppConfig.Host = c.PostForm("host")
-	AppConfig.Port = c.PostForm("port")
-	AppConfig.Theme = c.PostForm("theme")
-	AppConfig.Color = c.PostForm("color")
+	appConfig.Host = c.PostForm("host")
+	appConfig.Port = c.PostForm("port")
+	appConfig.Theme = c.PostForm("theme")
+	appConfig.Color = c.PostForm("color")
 
-	conf.Write(AppConfig)
+	conf.Write(appConfig)
 
-	log.Println("INFO: writing new config to", AppConfig.ConfPath)
+	log.Println("INFO: writing new config to", appConfig.ConfPath)
 
 	c.Redirect(http.StatusFound, "/config")
 }
@@ -41,7 +41,7 @@ func saveConfigHandler(c *gin.Context) {
 
 // 	log.Println("INFO: delting all hosts from DB")
 
-// 	db.Clear(AppConfig.DbPath)
+// 	db.Clear(appConfig.DbPath)
 
 // 	http.Redirect(w, r, r.Header.Get("Referer"), 302)
 // }

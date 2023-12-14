@@ -12,19 +12,21 @@ import (
 )
 
 // Gui - start web server
-func Gui(confPath, yamlPath, nodePath string) {
+func Gui(dirPath, nodePath string) {
 
-	AppConfig = conf.Get(confPath)
-	AppConfig.ConfPath = confPath
-	AppConfig.NodePath = ""
-	AppConfig.YamlPath = yamlPath
-	AppConfig.Icon = Icon
-	log.Println("INFO: starting web gui with config", AppConfig.ConfPath)
+	confPath := dirPath + "/config.yaml"
+	check.Path(confPath)
 
-	// AllLinks = yaml.Read(AppConfig.YamlPath)
-	// log.Println("ALL:", AllLinks)
+	appConfig = conf.Get(confPath)
 
-	address := AppConfig.Host + ":" + AppConfig.Port
+	appConfig.DirPath = dirPath
+	appConfig.ConfPath = confPath
+	appConfig.NodePath = nodePath
+	appConfig.Icon = icon
+
+	log.Println("INFO: starting web gui with config", appConfig.ConfPath)
+
+	address := appConfig.Host + ":" + appConfig.Port
 
 	log.Println("=================================== ")
 	log.Printf("Web GUI at http://%s", address)

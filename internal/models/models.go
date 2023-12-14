@@ -7,8 +7,8 @@ type Conf struct {
 	Theme    string
 	Color    string
 	Icon     string
+	DirPath  string
 	ConfPath string
-	YamlPath string
 	NodePath string
 }
 

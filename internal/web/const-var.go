@@ -7,8 +7,8 @@ import (
 )
 
 var (
-	// AppConfig - config for Web Gui
-	AppConfig models.Conf
+	// appConfig - config for Web Gui
+	appConfig models.Conf
 )
 
 // TemplHTML - html templates
