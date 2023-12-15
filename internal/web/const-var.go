@@ -1,7 +1,7 @@
 package web
 
 import (
-	// "embed"
+	"embed"
 
 	"github.com/aceberg/ExerciseDiary/internal/models"
 )
@@ -9,15 +9,12 @@ import (
 var (
 	// appConfig - config for Web Gui
 	appConfig models.Conf
+
+	//
+	exData models.AllExData
 )
 
-// TemplHTML - html templates
+// templFS - html templates
 //
-// //go:embed templates/*
-// var TemplHTML embed.FS
-
-// // TemplPath - path to html templates
-// const TemplPath = "templates/"
-
-// TemplPath - path to html templates
-const TemplPath = "../../internal/web/templates/"
+//go:embed templates/*
+var templFS embed.FS
