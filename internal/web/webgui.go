@@ -44,6 +44,8 @@ func Gui(dirPath, nodePath string) {
 	templ := template.Must(template.New("").ParseFS(templFS, "templates/*"))
 	router.SetHTMLTemplate(templ)
 
+	router.Static("/public/", "../../internal/web/public")
+
 	router.GET("/", indexHandler)              // index.go
 	router.GET("/config/", configHandler)      // config.go
 	router.POST("/config/", saveConfigHandler) // config.go
@@ -65,5 +67,7 @@ func createExercises() {
 
 	ex.Name = "Squats"
 	ex.Group = "Day 2"
+	ex.Weight = 40
+	ex.Reps = 11
 	exData.Exs = append(exData.Exs, ex)
 }

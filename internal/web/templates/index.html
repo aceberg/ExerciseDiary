@@ -1,5 +1,7 @@
 {{ define "index.html" }}
 </head>
+<script src="./public/js/index.js"></script>
+<link rel="stylesheet" type="text/css" href="./public/css/index.css" />
 <body>
 <br>
 <div class="container">
@@ -17,7 +19,12 @@
                       <div class="accordion-body">
                         {{ range $.ExData.Exs }}
                         {{ if eq .Group $gr }}
-                            <p>{{ .Name }}</p>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn exercise-button" type="button">{{ .Name }}</button>
+                            <button class="btn add-exercise-button" onclick='addExercise("{{ .Name }}", "{{ .Weight }}", "{{ .Reps }}")'>
+                                <i class="bi bi-arrow-right-square"></i>
+                            </button>
+                        </div>
                         {{ end }}
                         {{ end }}
                       </div>
@@ -28,13 +35,22 @@
         </div>
         <div class="col">
             <div class="card border-primary">
-                <div class="card-header">Today</div>
+                <!-- <div class="card-header">Today</div> -->
                 <div class="card-body">
-                  <h4 class="card-title">Primary card title</h4>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
-                    Some quick example text to build on the card title and make up the bulk of the card's content.
-                    Some quick example text to build on the card title and make up the bulk of the card's content.
-                  </p>
+                <form action="/sets/" method="post">
+                    <span class="input-group m-auto" style="width: 50%;">
+                        <span class="input-group-text">Date</span>
+                        <input name="date" type="date" class="form-control">
+                    </span>
+                  <table class="table table-borderless" id="todayEx">
+                    <thead>
+                        <th style="width: 60%;">Name</th>
+                        <th>Weight</th>
+                        <th>Reps</th>
+                    </thead>
+                  </table>
+                  <button type="submit" class="btn btn-primary text-center">Save</button>
+                </form>
                 </div>
             </div>
         </div>
