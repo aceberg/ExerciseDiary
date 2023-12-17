@@ -13,7 +13,7 @@ import (
 func indexHandler(c *gin.Context) {
 	var guiData models.GuiData
 
-	// exData.Exs = db.SelectEx(appConfig.DBPath)
+	exData.Exs = db.SelectEx(appConfig.DBPath)
 	exData.Sets = db.SelectSet(appConfig.DBPath)
 
 	guiData.Config = appConfig

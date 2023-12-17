@@ -11,7 +11,7 @@ func Create(path string) {
 
 	sqlStatement := `CREATE TABLE IF NOT EXISTS exercises (
 		"ID"		INTEGER PRIMARY KEY,
-		"GROUP"		TEXT,
+		"GR"		TEXT,
 		"NAME"		TEXT,
 		"DESCR"		TEXT,
 		"IMAGE"		TEXT,
@@ -35,7 +35,7 @@ func Create(path string) {
 // InsertEx - insert one exercise into DB
 func InsertEx(path string, ex models.Exercise) {
 
-	sqlStatement := `INSERT INTO exercises (GROUP, NAME, DESCR, IMAGE, COLOR, WEIGHT, REPS) 
+	sqlStatement := `INSERT INTO exercises (GR, NAME, DESCR, IMAGE, COLOR, WEIGHT, REPS) 
 	VALUES ('%s','%s','%s','%s','%s','%d','%d');`
 
 	ex.Group = quoteStr(ex.Group)

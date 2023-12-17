@@ -10,7 +10,6 @@ import (
 	"github.com/aceberg/ExerciseDiary/internal/check"
 	"github.com/aceberg/ExerciseDiary/internal/conf"
 	"github.com/aceberg/ExerciseDiary/internal/db"
-	"github.com/aceberg/ExerciseDiary/internal/models"
 )
 
 // Gui - start web server
@@ -31,8 +30,6 @@ func Gui(dirPath, nodePath string) {
 	log.Println("INFO: starting web gui with config", appConfig.ConfPath)
 
 	db.Create(appConfig.DBPath)
-	// REMOVE LATER
-	createExercises()
 
 	address := appConfig.Host + ":" + appConfig.Port
 
@@ -48,29 +45,13 @@ func Gui(dirPath, nodePath string) {
 
 	router.Static("/public/", "../../internal/web/public")
 
-	router.GET("/", indexHandler)              // index.go
-	router.GET("/config/", configHandler)      // config.go
-	router.POST("/config/", saveConfigHandler) // config.go
-	router.POST("/set/", setHandler)           // set.go
+	router.GET("/", indexHandler)                  // index.go
+	router.GET("/config/", configHandler)          // config.go
+	router.POST("/config/", saveConfigHandler)     // config.go
+	router.GET("/exercise/", exerciseHandler)      // exercise.go
+	router.POST("/exercise/", saveExerciseHandler) // exercise.go
+	router.POST("/set/", setHandler)               // set.go
 
 	err := router.Run(address)
 	check.IfError(err)
-}
-
-func createExercises() {
-	var ex models.Exercise
-
-	ex.Name = "Pull ups"
-	ex.Group = "Day 1"
-	exData.Exs = append(exData.Exs, ex)
-
-	ex.Name = "Push ups"
-	ex.Group = "Day 1"
-	exData.Exs = append(exData.Exs, ex)
-
-	ex.Name = "Squats"
-	ex.Group = "Day 2"
-	ex.Weight = 40
-	ex.Reps = 11
-	exData.Exs = append(exData.Exs, ex)
 }

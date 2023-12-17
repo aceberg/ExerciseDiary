@@ -1,0 +1,53 @@
+{{ define "exercise.html" }}
+
+<body>
+    <div class="container mt-5">
+    <div class="row">
+        <div class="col">
+        <div class="card border-primary">
+            <div class="card-header">Exercise</div>
+        <div class="card-body">
+        <table class="table table-borderless">
+            <form action="/exercise/" method="post">
+                <input name="id" type="hidden" value="{{ .OneEx.ID }}">
+                <tr>
+                    <td>Group</td>
+                    <td><input name="group" type="text" class="form-control" value="{{ .OneEx.Group }}"></td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td><input name="name" type="text" class="form-control" value="{{ .OneEx.Name }}"></td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td><textarea name="descr" rows="3" class="form-control" value="{{ .OneEx.Descr }}"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Weight (default)</td>
+                    <td><input name="weight" type="number" class="form-control" value="{{ .OneEx.Weight }}"></td>
+                </tr>
+                <tr>
+                    <td>Reps (default)</td>
+                    <td><input name="reps" type="number" class="form-control" value="{{ .OneEx.Reps }}"></td>
+                </tr>
+                <tr>
+                    <td><button type="submit" class="btn btn-primary">Save</button></td>
+                    <td></td>
+                </tr>
+            </form>
+        </table>
+        </div>
+        </div>
+        </div>
+        <div class="col">
+            <div class="card border-primary">
+                <div class="card-header">Image</div>
+                <div class="card-body"></div>
+            </div>
+        </div>
+    </div>
+    </div>
+        
+
+{{ template "footer.html" }}
+{{ end }}

@@ -16,7 +16,7 @@ type Conf struct {
 // Exercise - one exercise
 type Exercise struct {
 	ID     int    `db:"ID"`
-	Group  string `db:"GROUP"`
+	Group  string `db:"GR"`
 	Name   string `db:"NAME"`
 	Descr  string `db:"DESCR"`
 	Image  string `db:"IMAGE"`
@@ -47,4 +47,5 @@ type GuiData struct {
 	Themes   []string
 	ExData   AllExData
 	GroupMap map[string]string
+	OneEx    Exercise
 }
