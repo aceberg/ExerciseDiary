@@ -1,5 +1,5 @@
 .exercise-button {    
-    width: 79%;
+    width: 70%;
     height: 100%;
     background-color: #00000000;
     text-align: left;
@@ -9,7 +9,7 @@
 }
 
 .add-exercise-button {
-    width: 19%;
+    width: 14%;
     height: 100%;
     background-color: #00000000;
     color: var(--bs-primary);

@@ -9,6 +9,7 @@ import (
 
 	"github.com/aceberg/ExerciseDiary/internal/check"
 	"github.com/aceberg/ExerciseDiary/internal/conf"
+	"github.com/aceberg/ExerciseDiary/internal/db"
 	"github.com/aceberg/ExerciseDiary/internal/models"
 )
 
@@ -29,6 +30,7 @@ func Gui(dirPath, nodePath string) {
 
 	log.Println("INFO: starting web gui with config", appConfig.ConfPath)
 
+	db.Create(appConfig.DBPath)
 	// REMOVE LATER
 	createExercises()
 
@@ -49,6 +51,7 @@ func Gui(dirPath, nodePath string) {
 	router.GET("/", indexHandler)              // index.go
 	router.GET("/config/", configHandler)      // config.go
 	router.POST("/config/", saveConfigHandler) // config.go
+	router.POST("/set/", setHandler)           // set.go
 
 	err := router.Run(address)
 	check.IfError(err)

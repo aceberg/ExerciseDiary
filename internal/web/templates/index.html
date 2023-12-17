@@ -2,7 +2,7 @@
 </head>
 <script src="./public/js/index.js"></script>
 <link rel="stylesheet" type="text/css" href="./public/css/index.css" />
-<body>
+<body onload='setFormDate({{ .ExData.Sets }})'>
 <br>
 <div class="container">
     <div class="row">
@@ -20,8 +20,11 @@
                         {{ range $.ExData.Exs }}
                         {{ if eq .Group $gr }}
                         <div class="d-grid gap-2 d-md-block">
-                            <button class="btn exercise-button" type="button">{{ .Name }}</button>
-                            <button class="btn add-exercise-button" onclick='addExercise("{{ .Name }}", "{{ .Weight }}", "{{ .Reps }}")'>
+                            <button class="btn add-exercise-button" title="Edit">
+                              <i class="bi bi-pencil-square"></i>
+                            </button>
+                            <button class="btn exercise-button" onclick='addExercise("{{ .Name }}", "{{ .Weight }}", "{{ .Reps }}")' title="Add">{{ .Name }}</button>
+                            <button class="btn add-exercise-button" onclick='addExercise("{{ .Name }}", "{{ .Weight }}", "{{ .Reps }}")' title="Add">
                                 <i class="bi bi-arrow-right-square"></i>
                             </button>
                         </div>
@@ -37,17 +40,19 @@
             <div class="card border-primary">
                 <!-- <div class="card-header">Today</div> -->
                 <div class="card-body">
-                <form action="/sets/" method="post">
                     <span class="input-group m-auto" style="width: 50%;">
                         <span class="input-group-text">Date</span>
-                        <input name="date" type="date" class="form-control">
+                        <input name="date" type="date" class="form-control" onchange='setFormDate({{ .ExData.Sets }})' id="realDate" value="{{ .Today }}">
                     </span>
-                  <table class="table table-borderless" id="todayEx">
+                  <form action="/set/" method="post" name="sets">
+                    <input name="date" type="hidden" id="formDate" value="{{ .Today }}">
+                  <table class="table table-borderless">
                     <thead>
                         <th style="width: 60%;">Name</th>
                         <th>Weight</th>
                         <th>Reps</th>
                     </thead>
+                    <tbody id="todayEx"></tbody>
                   </table>
                   <button type="submit" class="btn btn-primary text-center">Save</button>
                 </form>

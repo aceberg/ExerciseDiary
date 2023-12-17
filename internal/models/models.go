@@ -30,6 +30,7 @@ type Set struct {
 	ID     int    `db:"ID"`
 	Date   string `db:"DATE"`
 	Name   string `db:"NAME"`
+	Color  string `db:"COLOR"`
 	Weight int    `db:"WEIGHT"`
 	Reps   int    `db:"REPS"`
 }
@@ -46,4 +47,5 @@ type GuiData struct {
 	Themes   []string
 	ExData   AllExData
 	GroupMap map[string]string
+	Today    string
 }
