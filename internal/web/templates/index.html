@@ -20,7 +20,7 @@
                         {{ range $.ExData.Exs }}
                         {{ if eq .Group $gr }}
                         <div class="d-grid gap-2 d-md-block">
-                            <a href="/exercise/?id=edit"><button class="btn add-exercise-button" title="Edit">
+                            <a href="/exercise/?id={{ .ID }}"><button class="btn add-exercise-button" title="Edit">
                               <i class="bi bi-pencil-square"></i>
                             </button></a>
                             <button class="btn exercise-button" onclick='addExercise("{{ .Name }}", "{{ .Weight }}", "{{ .Reps }}")' title="Add">{{ .Name }}</button>

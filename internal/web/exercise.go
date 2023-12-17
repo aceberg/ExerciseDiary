@@ -20,12 +20,19 @@ func exerciseHandler(c *gin.Context) {
 	guiData.ExData = exData
 	guiData.GroupMap = createGroupMap()
 
-	id, _ := c.GetQuery("id")
-	log.Println("ID =", id)
+	idStr, ok := c.GetQuery("id")
+	log.Println("ID =", idStr)
 
-	// if ok && (id != new) {
+	if ok && (idStr != new) {
+		id, _ := strconv.Atoi(id)
 
-	// }
+		for _, oneEx := range exData.Exs {
+			if oneEx.ID == id {
+				guiData.OneEx = oneEx
+				break
+			}
+		}
+	}
 
 	c.HTML(http.StatusOK, "header.html", guiData)
 	c.HTML(http.StatusOK, "exercise.html", guiData)
