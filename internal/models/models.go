@@ -47,5 +47,4 @@ type GuiData struct {
 	Themes   []string
 	ExData   AllExData
 	GroupMap map[string]string
-	Today    string
 }

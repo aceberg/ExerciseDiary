@@ -18,3 +18,14 @@
 .add-exercise-button:hover {
     background-color: #0000001a;
 }
+
+.del-set-button {
+    /* width: 14%; */
+    height: 100%;
+    background-color: #00000000;
+    color: var(--bs-primary);
+    text-align: center;
+}
+.del-set-button:hover {
+    background-color: #0000001a;
+}

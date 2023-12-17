@@ -1,7 +1,7 @@
 package web
 
 import (
-	"log"
+	// "log"
 	"net/http"
 	"strconv"
 
@@ -20,15 +20,14 @@ func setHandler(c *gin.Context) {
 	_ = c.PostFormMap("sets")
 
 	formMap := c.Request.PostForm
-	log.Println("MAP:", formMap)
+	// log.Println("MAP:", formMap)
 
 	len := len(formMap["name"])
-	log.Println("LEN:", len)
+	// log.Println("LEN:", len)
+	date := formMap["date"][0]
 
 	for i := 0; i < len; i++ {
-		// id, _ = strconv.Atoi(formMap["id"][i])
-		// oneSet.ID = id
-		oneSet.Date = formMap["date"][0]
+		oneSet.Date = date
 		oneSet.Name = formMap["name"][i]
 		weight, _ = strconv.Atoi(formMap["weight"][i])
 		reps, _ = strconv.Atoi(formMap["reps"][i])
@@ -36,15 +35,13 @@ func setHandler(c *gin.Context) {
 		oneSet.Reps = reps
 
 		formData = append(formData, oneSet)
-		// exData.Sets = append(exData.Sets, oneSet)
-		// db.InsertSet(appConfig.DBPath, oneSet)
 	}
 
-	db.BulkDeleteSetsByDate(appConfig.DBPath, oneSet.Date)
+	db.BulkDeleteSetsByDate(appConfig.DBPath, date)
 	db.BulkAddSets(appConfig.DBPath, formData)
 	exData.Sets = db.SelectSet(appConfig.DBPath)
 
-	log.Println("FORM DATA:", formData)
+	// log.Println("FORM DATA:", formData)
 
 	c.Redirect(http.StatusFound, "/")
 }

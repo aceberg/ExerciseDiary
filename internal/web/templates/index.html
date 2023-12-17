@@ -2,7 +2,7 @@
 </head>
 <script src="./public/js/index.js"></script>
 <link rel="stylesheet" type="text/css" href="./public/css/index.css" />
-<body onload='setFormDate({{ .ExData.Sets }})'>
+<body onload='setFormDateSets({{ .ExData.Sets }})'>
 <br>
 <div class="container">
     <div class="row">
@@ -40,17 +40,14 @@
             <div class="card border-primary">
                 <!-- <div class="card-header">Today</div> -->
                 <div class="card-body">
-                    <span class="input-group m-auto" style="width: 50%;">
-                        <span class="input-group-text">Date</span>
-                        <input name="date" type="date" class="form-control" onchange='setFormDate({{ .ExData.Sets }})' id="realDate" value="{{ .Today }}">
-                    </span>
                   <form action="/set/" method="post" name="sets">
-                    <input name="date" type="hidden" id="formDate" value="{{ .Today }}">
+                      <input name="date" type="date" class="form-control m-auto" onchange='setFormDateSets({{ .ExData.Sets }})' id="formDate" style="width: 50%;">
                   <table class="table table-borderless">
                     <thead>
                         <th style="width: 60%;">Name</th>
                         <th>Weight</th>
                         <th>Reps</th>
+                        <th></th>
                     </thead>
                     <tbody id="todayEx"></tbody>
                   </table>

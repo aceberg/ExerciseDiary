@@ -3,7 +3,6 @@ package web
 import (
 	"fmt"
 	"net/http"
-	"time"
 
 	"github.com/gin-gonic/gin"
 
@@ -20,7 +19,6 @@ func indexHandler(c *gin.Context) {
 	guiData.Config = appConfig
 	guiData.ExData = exData
 	guiData.GroupMap = createGroupMap()
-	guiData.Today = time.Now().Format("2006-01-02")
 
 	c.HTML(http.StatusOK, "header.html", guiData)
 	c.HTML(http.StatusOK, "index.html", guiData)
