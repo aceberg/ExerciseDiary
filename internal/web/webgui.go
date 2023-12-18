@@ -43,7 +43,7 @@ func Gui(dirPath, nodePath string) {
 	templ := template.Must(template.New("").ParseFS(templFS, "templates/*"))
 	router.SetHTMLTemplate(templ)
 
-	router.StaticFS("/public", http.FS(pubFS))
+	router.StaticFS("/fs/", http.FS(pubFS))
 
 	router.GET("/", indexHandler)                  // index.go
 	router.GET("/config/", configHandler)          // config.go
