@@ -12,7 +12,7 @@ func Get(path string) models.Conf {
 	var config models.Conf
 
 	viper.SetDefault("HOST", "0.0.0.0")
-	viper.SetDefault("PORT", "8830")
+	viper.SetDefault("PORT", "8851")
 	viper.SetDefault("THEME", "grass")
 	viper.SetDefault("COLOR", "light")
 

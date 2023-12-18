@@ -5,12 +5,10 @@ COPY . /src
 RUN cd /src/cmd/ExerciseDiary/ && CGO_ENABLED=0 go build -o /ExerciseDiary .
 
 
-FROM alpine
+FROM scratch
 
+WORKDIR /data/ExerciseDiary
 WORKDIR /app
-
-RUN apk add --no-cache arp-scan tzdata \
-    && mkdir /data/ExerciseDiary
 
 COPY --from=builder /ExerciseDiary /app/
 

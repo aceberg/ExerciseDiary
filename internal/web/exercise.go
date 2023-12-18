@@ -13,6 +13,7 @@ import (
 
 func exerciseHandler(c *gin.Context) {
 	var guiData models.GuiData
+	var id int
 
 	exData.Exs = db.SelectEx(appConfig.DBPath)
 
@@ -23,8 +24,8 @@ func exerciseHandler(c *gin.Context) {
 	idStr, ok := c.GetQuery("id")
 	log.Println("ID =", idStr)
 
-	if ok && (idStr != new) {
-		id, _ := strconv.Atoi(id)
+	if ok && (idStr != "new") {
+		id, _ = strconv.Atoi(idStr)
 
 		for _, oneEx := range exData.Exs {
 			if oneEx.ID == id {
@@ -45,17 +46,33 @@ func saveExerciseHandler(c *gin.Context) {
 	oneEx.Name = c.PostForm("name")
 	oneEx.Descr = c.PostForm("descr")
 
-	// id := c.PostForm("id")
+	id := c.PostForm("id")
 	weight := c.PostForm("weight")
 	reps := c.PostForm("reps")
 
+	oneEx.ID, _ = strconv.Atoi(id)
 	oneEx.Weight, _ = strconv.Atoi(weight)
 	oneEx.Reps, _ = strconv.Atoi(reps)
 
 	log.Println("ONEEX =", oneEx)
 
+	if oneEx.ID != 0 {
+		db.DeleteEx(appConfig.DBPath, oneEx.ID)
+	}
+
 	db.InsertEx(appConfig.DBPath, oneEx)
 	exData.Exs = db.SelectEx(appConfig.DBPath)
 
-	c.Redirect(http.StatusFound, "/exercise/")
+	c.Redirect(http.StatusFound, "/")
+}
+
+func deleteExerciseHandler(c *gin.Context) {
+
+	idStr := c.PostForm("id")
+	id, _ := strconv.Atoi(idStr)
+
+	db.DeleteEx(appConfig.DBPath, id)
+	exData.Exs = db.SelectEx(appConfig.DBPath)
+
+	c.Redirect(http.StatusFound, "/")
 }

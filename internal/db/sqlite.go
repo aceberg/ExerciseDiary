@@ -36,7 +36,7 @@ func SelectEx(path string) (exes []models.Exercise) {
 
 	mu.Lock()
 	dbx := connect(path)
-	err := dbx.Select(&exes, "SELECT * FROM exercises ORDER BY ID DESC")
+	err := dbx.Select(&exes, "SELECT * FROM exercises ORDER BY ID ASC")
 	mu.Unlock()
 
 	check.IfError(err)
@@ -49,7 +49,7 @@ func SelectSet(path string) (sets []models.Set) {
 
 	mu.Lock()
 	dbx := connect(path)
-	err := dbx.Select(&sets, "SELECT * FROM sets ORDER BY ID DESC")
+	err := dbx.Select(&sets, "SELECT * FROM sets ORDER BY ID ASC")
 	mu.Unlock()
 
 	check.IfError(err)

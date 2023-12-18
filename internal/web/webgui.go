@@ -50,6 +50,7 @@ func Gui(dirPath, nodePath string) {
 	router.POST("/config/", saveConfigHandler)     // config.go
 	router.GET("/exercise/", exerciseHandler)      // exercise.go
 	router.POST("/exercise/", saveExerciseHandler) // exercise.go
+	router.POST("/exdel/", deleteExerciseHandler)  // exercise.go
 	router.POST("/set/", setHandler)               // set.go
 
 	err := router.Run(address)
