@@ -23,7 +23,34 @@
                             <a href="/exercise/?id={{ .ID }}"><button class="btn add-exercise-button" title="Edit">
                               <i class="bi bi-pencil-square"></i>
                             </button></a>
-                            <button class="btn exercise-button" onclick='addExercise("{{ .Name }}", "{{ .Weight }}", "{{ .Reps }}")' title="Add">{{ .Name }}</button>
+                            <!-- Button trigger modal -->
+                            <button class="btn add-exercise-button" title="Show details" data-bs-toggle="modal" data-bs-target="#modal{{ .ID }}">
+                              <i class="bi bi-window-desktop"></i>
+                            </button>
+<!-- Modal -->
+<div class="modal" id="modal{{ .ID }}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Exercise details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="col">
+          <p>Description: {{ .Descr }}</p>
+          <p>Weight (default): {{ .Weight }}</p>
+          <p>Reps (default): {{ .Reps }}</p>
+        </div>
+        <div class="col">
+          <img src="{{ .Image }}" style="max-width: 100%;max-height: 100%;"></img>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+                            <button class="btn exercise-button" onclick='addExercise("{{ .Name }}", "{{ .Weight }}", "{{ .Reps }}")' title="Weight: {{ .Weight }}; Reps (default): {{ .Reps }};">{{ .Name }}</button>
                             <button class="btn add-exercise-button" onclick='addExercise("{{ .Name }}", "{{ .Weight }}", "{{ .Reps }}")' title="Add">
                                 <i class="bi bi-arrow-right-square"></i>
                             </button>
@@ -41,7 +68,7 @@
                 <!-- <div class="card-header">Today</div> -->
                 <div class="card-body">
                   <form action="/set/" method="post" name="sets">
-                      <input name="date" type="date" class="form-control m-auto" onchange='setFormDateSets({{ .ExData.Sets }})' id="formDate" style="width: 50%;">
+                    <input name="date" type="date" class="m-auto form-control" onchange='setFormDateSets({{ .ExData.Sets }})' id="formDate" style="width: 40%;">
                   <table class="table table-borderless">
                     <thead>
                         <th style="width: 60%;">Name</th>
@@ -51,7 +78,7 @@
                     </thead>
                     <tbody id="todayEx"></tbody>
                   </table>
-                  <button type="submit" class="btn btn-primary text-center">Save</button>
+                  <button type="submit" class="btn btn-primary">Save</button>
                 </form>
                 </div>
             </div>

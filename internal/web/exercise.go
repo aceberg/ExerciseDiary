@@ -1,7 +1,7 @@
 package web
 
 import (
-	"log"
+	// "log"
 	"net/http"
 	"strconv"
 
@@ -22,7 +22,7 @@ func exerciseHandler(c *gin.Context) {
 	guiData.GroupMap = createGroupMap()
 
 	idStr, ok := c.GetQuery("id")
-	log.Println("ID =", idStr)
+	// log.Println("ID =", idStr)
 
 	if ok && (idStr != "new") {
 		id, _ = strconv.Atoi(idStr)
@@ -46,6 +46,7 @@ func saveExerciseHandler(c *gin.Context) {
 	oneEx.Place = c.PostForm("place")
 	oneEx.Name = c.PostForm("name")
 	oneEx.Descr = c.PostForm("descr")
+	oneEx.Image = c.PostForm("image")
 
 	id := c.PostForm("id")
 	weight := c.PostForm("weight")
@@ -55,7 +56,7 @@ func saveExerciseHandler(c *gin.Context) {
 	oneEx.Weight, _ = strconv.Atoi(weight)
 	oneEx.Reps, _ = strconv.Atoi(reps)
 
-	log.Println("ONEEX =", oneEx)
+	// log.Println("ONEEX =", oneEx)
 
 	if oneEx.ID != 0 {
 		db.DeleteEx(appConfig.DBPath, oneEx.ID)

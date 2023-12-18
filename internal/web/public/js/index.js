@@ -13,7 +13,7 @@ function addExercise(name, weight, reps) {
 function setToday() {
     if (!today) {
         today = window.sessionStorage.getItem("today");
-        console.log('TODAY FROM STOR =', today);
+        // console.log('TODAY FROM STOR =', today);
         if (today === null) {
             today = new Date().toJSON().slice(0, 10);
             window.sessionStorage.setItem("today", today);
@@ -21,7 +21,7 @@ function setToday() {
         document.getElementById("formDate").value = today;
     }
 
-    console.log('TODAY =', today);
+    // console.log('TODAY =', today);
 };
 
 function setFormDateSets(sets) {
@@ -29,7 +29,7 @@ function setFormDateSets(sets) {
     setToday();
     window.sessionStorage.setItem("today", today);
 
-    console.log('DAY =', today);
+    // console.log('DAY =', today);
     // console.log('SETS =', sets);
 
     document.getElementById('todayEx').innerHTML = "";
