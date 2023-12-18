@@ -12,6 +12,7 @@ func Create(path string) {
 	sqlStatement := `CREATE TABLE IF NOT EXISTS exercises (
 		"ID"		INTEGER PRIMARY KEY,
 		"GR"		TEXT,
+		"PLACE"		TEXT,
 		"NAME"		TEXT,
 		"DESCR"		TEXT,
 		"IMAGE"		TEXT,
@@ -35,14 +36,14 @@ func Create(path string) {
 // InsertEx - insert one exercise into DB
 func InsertEx(path string, ex models.Exercise) {
 
-	sqlStatement := `INSERT INTO exercises (GR, NAME, DESCR, IMAGE, COLOR, WEIGHT, REPS) 
-	VALUES ('%s','%s','%s','%s','%s','%d','%d');`
+	sqlStatement := `INSERT INTO exercises (GR, PLACE, NAME, DESCR, IMAGE, COLOR, WEIGHT, REPS) 
+	VALUES ('%s','%s','%s','%s','%s','%s','%d','%d');`
 
 	ex.Group = quoteStr(ex.Group)
 	ex.Name = quoteStr(ex.Name)
 	ex.Descr = quoteStr(ex.Descr)
 
-	sqlStatement = fmt.Sprintf(sqlStatement, ex.Group, ex.Name, ex.Descr, ex.Image, ex.Color, ex.Weight, ex.Reps)
+	sqlStatement = fmt.Sprintf(sqlStatement, ex.Group, ex.Place, ex.Name, ex.Descr, ex.Image, ex.Color, ex.Weight, ex.Reps)
 
 	exec(path, sqlStatement)
 }

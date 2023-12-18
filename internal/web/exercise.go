@@ -43,6 +43,7 @@ func saveExerciseHandler(c *gin.Context) {
 	var oneEx models.Exercise
 
 	oneEx.Group = c.PostForm("group")
+	oneEx.Place = c.PostForm("place")
 	oneEx.Name = c.PostForm("name")
 	oneEx.Descr = c.PostForm("descr")
 

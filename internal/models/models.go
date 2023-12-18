@@ -17,6 +17,7 @@ type Conf struct {
 type Exercise struct {
 	ID     int    `db:"ID"`
 	Group  string `db:"GR"`
+	Place  string `db:"PLACE"`
 	Name   string `db:"NAME"`
 	Descr  string `db:"DESCR"`
 	Image  string `db:"IMAGE"`

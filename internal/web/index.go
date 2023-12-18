@@ -3,6 +3,7 @@ package web
 import (
 	"fmt"
 	"net/http"
+	"sort"
 
 	"github.com/gin-gonic/gin"
 
@@ -20,14 +21,18 @@ func indexHandler(c *gin.Context) {
 	guiData.ExData = exData
 	guiData.GroupMap = createGroupMap()
 
+	// Sort exercises by Place
+	sort.Slice(guiData.ExData.Exs, func(i, j int) bool {
+		return guiData.ExData.Exs[i].Place < guiData.ExData.Exs[j].Place
+	})
+
 	c.HTML(http.StatusOK, "header.html", guiData)
 	c.HTML(http.StatusOK, "index.html", guiData)
 }
 
 func createGroupMap() map[string]string {
-
-	grMap := make(map[string]string)
 	i := 0
+	grMap := make(map[string]string)
 
 	for _, ex := range exData.Exs {
 
@@ -37,6 +42,5 @@ func createGroupMap() map[string]string {
 			i = i + 1
 		}
 	}
-
 	return grMap
 }
