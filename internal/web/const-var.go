@@ -18,3 +18,8 @@ var (
 //
 //go:embed templates/*
 var templFS embed.FS
+
+// pubFS - public folder
+//
+//go:embed public/*
+var pubFS embed.FS

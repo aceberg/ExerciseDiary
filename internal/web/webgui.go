@@ -3,7 +3,7 @@ package web
 import (
 	"html/template"
 	"log"
-	// "net/http"
+	"net/http"
 
 	"github.com/gin-gonic/gin"
 
@@ -39,11 +39,11 @@ func Gui(dirPath, nodePath string) {
 
 	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
-	// router.LoadHTMLGlob(TemplPath + "/*.html")
+
 	templ := template.Must(template.New("").ParseFS(templFS, "templates/*"))
 	router.SetHTMLTemplate(templ)
 
-	router.Static("/public/", "../../internal/web/public")
+	router.StaticFS("/public", http.FS(pubFS))
 
 	router.GET("/", indexHandler)                  // index.go
 	router.GET("/config/", configHandler)          // config.go
