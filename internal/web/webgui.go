@@ -41,14 +41,16 @@ func Gui(dirPath, nodePath string) {
 	router := gin.Default()
 
 	templ := template.Must(template.New("").ParseFS(templFS, "templates/*"))
-	router.SetHTMLTemplate(templ)
+	router.SetHTMLTemplate(templ) // templates
 
-	router.StaticFS("/fs/", http.FS(pubFS))
+	router.StaticFS("/fs/", http.FS(pubFS)) // public
 
-	router.GET("/", indexHandler)                  // index.go
-	router.GET("/config/", configHandler)          // config.go
+	router.GET("/", indexHandler)             // index.go
+	router.GET("/config/", configHandler)     // config.go
+	router.GET("/exercise/", exerciseHandler) // exercise.go
+	router.GET("/stats/", statsHandler)       // stats.go
+
 	router.POST("/config/", saveConfigHandler)     // config.go
-	router.GET("/exercise/", exerciseHandler)      // exercise.go
 	router.POST("/exercise/", saveExerciseHandler) // exercise.go
 	router.POST("/exdel/", deleteExerciseHandler)  // exercise.go
 	router.POST("/set/", setHandler)               // set.go

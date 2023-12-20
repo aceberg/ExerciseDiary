@@ -42,6 +42,12 @@ type AllExData struct {
 	Sets []Set
 }
 
+// HeatMapData - data for HeatMap
+type HeatMapData struct {
+	Name string
+	Data []int
+}
+
 // GuiData - web gui data
 type GuiData struct {
 	Config   Conf
@@ -49,4 +55,5 @@ type GuiData struct {
 	ExData   AllExData
 	GroupMap map[string]string
 	OneEx    Exercise
+	HeatMap  []HeatMapData
 }

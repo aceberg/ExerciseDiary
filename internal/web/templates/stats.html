@@ -1,0 +1,69 @@
+{{ define "stats.html" }}
+</head>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<body>
+    <div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <div class="card border-primary">
+                <div class="card-header">HeatMap</div>
+            <div class="card-body">
+                <div id="heatmap">
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card border-primary">
+                <div class="card-header">About</div>
+            <div class="card-body">
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>
+        
+<script>
+
+heat = {{ .HeatMap }};
+console.log("HEAT =", heat);
+
+function lowerData() {
+    var ldata = [];
+    let arrayLength = heat.length;
+    for (let i = 0 ; i < arrayLength; i++) {
+        ldata.push({
+            name: heat[i].Name,
+            data: heat[i].Data
+        });
+    }
+    return ldata;
+}
+ldata = lowerData();
+console.log("LDATA =", ldata);
+
+
+var options = {
+          series: ldata,
+          chart: {
+          height: 200,
+        //   width: 200,
+          type: 'heatmap',
+        },
+        dataLabels: {
+          enabled: false
+        },
+        colors: ["#008FFB"],
+        title: {
+          text: 'HeatMap Chart (Single color)'
+        },
+        };
+
+var chart = new ApexCharts(document.querySelector("#heatmap"), options);
+
+chart.render();
+
+</script>
+
+{{ template "footer.html" }}
+{{ end }}
