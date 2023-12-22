@@ -30,11 +30,20 @@ console.log("HEAT =", heat);
 
 function lowerData() {
     var ldata = [];
+    let hdata = [];
     let arrayLength = heat.length;
     for (let i = 0 ; i < arrayLength; i++) {
+        let dataLength = heat[i].Data.length;
+        hdata = [];
+        for (let j = 0 ; j < dataLength; j++) {
+            hdata.push({
+                x: heat[i].Data[j].X,
+                y: heat[i].Data[j].Y
+            });
+        }
         ldata.push({
             name: heat[i].Name,
-            data: heat[i].Data
+            data: hdata
         });
     }
     return ldata;
@@ -45,18 +54,30 @@ console.log("LDATA =", ldata);
 
 var options = {
           series: ldata,
-          chart: {
+        chart: {
           height: 200,
-        //   width: 200,
+          width: '100%',
           type: 'heatmap',
         },
         dataLabels: {
           enabled: false
         },
-        colors: ["#008FFB"],
+        colors: ["#03a70c"],
         title: {
           text: 'HeatMap Chart (Single color)'
         },
+        tooltip: {
+            enabled: true,
+            x: {
+                show: true,
+                formatter: (value,options)=>{
+                    return options.w.config.series[options.seriesIndex].data[options.dataPointIndex].x
+                }
+            },
+            y: {
+                show: false,
+            },
+        }
         };
 
 var chart = new ApexCharts(document.querySelector("#heatmap"), options);
