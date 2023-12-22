@@ -1,7 +1,8 @@
 package web
 
 import (
-	"log"
+	// "log"
+	"strconv"
 	"time"
 
 	"github.com/aceberg/ExerciseDiary/internal/models"
@@ -9,7 +10,6 @@ import (
 
 func generateHeatMap() (heatMap []models.HeatMapData) {
 	var heat models.HeatMapData
-	var data models.HeatPlace
 
 	w := 52 // weeks to show
 
@@ -23,17 +23,16 @@ func generateHeatMap() (heatMap []models.HeatMapData) {
 
 	for _, day := range dow {
 
-		heat.Name = day
-		heat.Data = []models.HeatPlace{}
+		heat.Y = day
 
 		for i := 0; i < w+1; i++ {
 
-			data.X = startDate.AddDate(0, 0, 7*i).Format("2006-01-02")
-			data.Y = countMap[data.X]
-			heat.Data = append(heat.Data, data)
+			heat.X = strconv.Itoa(i)
+			heat.D = startDate.AddDate(0, 0, 7*i).Format("2006-01-02")
+			heat.V = countMap[heat.D]
+			heatMap = append(heatMap, heat)
 		}
 
-		heatMap = append(heatMap, heat)
 		startDate = startDate.AddDate(0, 0, 1)
 	}
 
@@ -57,7 +56,6 @@ func countHeat() map[string]int {
 			countMap[ex.Date] = 1
 		}
 	}
-	log.Println("COUNT", countMap)
 
 	return countMap
 }

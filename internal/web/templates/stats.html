@@ -1,6 +1,7 @@
 {{ define "stats.html" }}
 </head>
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-chart-matrix@2.0.1"></script>
 <body>
     <div class="container mt-5">
     <div class="row">
@@ -8,7 +9,8 @@
             <div class="card border-primary">
                 <div class="card-header">HeatMap</div>
             <div class="card-body">
-                <div id="heatmap">
+                <div class="chart-container">
+                    <canvas id="matrix-chart" style="max-height: 110px;">
                 </div>
             </div>
             </div>
@@ -25,92 +27,107 @@
         
 <script>
 
-heat = {{ .HeatMap }};
-console.log("HEAT =", heat);
+ // HeatMap
+ var heat = {{ .HeatMap }};
 
 function lowerData() {
     var ldata = [];
-    let hdata = [];
     let arrayLength = heat.length;
     for (let i = 0 ; i < arrayLength; i++) {
-        let dataLength = heat[i].Data.length;
-        hdata = [];
-        for (let j = 0 ; j < dataLength; j++) {
-            hdata.push({
-                x: heat[i].Data[j].X,
-                y: heat[i].Data[j].Y
-            });
-        }
+        let val = heat[i];
         ldata.push({
-            name: heat[i].Name,
-            data: hdata
+            x: val.X,
+            y: val.Y,
+            d: val.D,
+            v: val.V
         });
     }
     return ldata;
 }
-ldata = lowerData();
-console.log("LDATA =", ldata);
 
+var ctx = document.getElementById("matrix-chart").getContext("2d");
+window.myMatrix = new Chart(ctx, {
+    type: 'matrix',
+    data: {
+        datasets: [{
+            label: 'Heatmap',
+            data: lowerData(),
+            backgroundColor(context) {
+                const value = context.dataset.data[context.dataIndex].v;
+                const alpha = value / 7;
+                return Chart.helpers.color('green').alpha(alpha).rgbString();
+            },
+            borderColor(context) {
+                const value = context.dataset.data[context.dataIndex].v;
+                const alpha = 0.5;
+                return Chart.helpers.color('grey').alpha(alpha).rgbString();
+            },
+            borderWidth: 1,
+            hoverBackgroundColor: 'lightgrey',
+            hoverBorderColor: 'grey',
+            width() {
+                return 12;
+            },
+            height() {
+                return 12;
+            }
+        }]
+    },
+    options: {
+        onClick: (e) => {
+            const res = window.myMatrix.getElementsAtEventForMode(e, 'nearest', { intersect: true }, true);
 
-var options = {
-          series: ldata,
-        chart: {
-          height: 170,
-          width: 850,
-          type: 'heatmap',
-          backgrount: '0',
+            console.log('res =', res[0].element.$context.raw.d);
+
+            // window.location.href = "/diary_show?from="+dayD+"&to="+dayD+"";
         },
-        fill: {
-            type: 'gradient',
-            opacity: 0.5,
-        },
-        grid: {
-            show: true,
-            borderColor: '#949494',
-            position: 'front',
-            xaxis: {
-                lines: {
-                    show: true
+        plugins: {
+            legend: false,
+            tooltip: {
+                callbacks: {
+                    title() {
+                        return '';
+                    },
+                    label(context) {
+                        const v = context.dataset.data[context.dataIndex];
+                        return [v.v, v.d];
+                    }
                 }
-            },   
-            yaxis: {
-                lines: {
-                    show: true
-                }
-            },  
-        },
-        dataLabels: {
-          enabled: false
-        },
-        colors: ['#03a70c'],
-        // title: {
-        //   text: 'Activity Chart'
-        // },
-        xaxis: {
-            labels: {
-                show: false
             }
         },
-        yaxis: {
-            reversed: true
-        },
-        tooltip: {
-            enabled: true,
+        scales: {
             x: {
-                show: true,
-                formatter: (value,options)=>{
-                    return options.w.config.series[options.seriesIndex].data[options.dataPointIndex].x
+                type: 'category',
+                offset: true,
+                reverse: false,
+                ticks: {
+                    display: false
+                },
+                border: {
+                    display: false
+                },
+                grid: {
+                    display: false
                 }
             },
             y: {
-                show: false,
+                type: 'category',
+                labels: ['Mo', 'Tu', 'We','Th','Fr','Sa','Su'],
+                reverse: false,
+                ticks: {
+                    stepSize: 1,
+                    display: true
+                },
+                border: {
+                    display: false
+                },
+                grid: {
+                    display: false
+                }
             },
         }
-        };
-
-var chart = new ApexCharts(document.querySelector("#heatmap"), options);
-
-chart.render();
+    }
+});    
 
 </script>
 

@@ -42,16 +42,12 @@ type AllExData struct {
 	Sets []Set
 }
 
-// HeatPlace - for HeatMap
-type HeatPlace struct {
-	X string
-	Y int
-}
-
 // HeatMapData - data for HeatMap
 type HeatMapData struct {
-	Name string
-	Data []HeatPlace
+	X string
+	Y string
+	D string
+	V int
 }
 
 // GuiData - web gui data
