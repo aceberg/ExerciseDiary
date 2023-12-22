@@ -4,7 +4,7 @@
 <body>
     <div class="container mt-5">
     <div class="row">
-        <div class="col">
+        <div class="col-8">
             <div class="card border-primary">
                 <div class="card-header">HeatMap</div>
             <div class="card-body">
@@ -13,7 +13,7 @@
             </div>
             </div>
         </div>
-        <div class="col">
+        <div class="col-4">
             <div class="card border-primary">
                 <div class="card-header">About</div>
             <div class="card-body">
@@ -55,16 +55,44 @@ console.log("LDATA =", ldata);
 var options = {
           series: ldata,
         chart: {
-          height: 200,
-          width: '100%',
+          height: 170,
+          width: 850,
           type: 'heatmap',
+          backgrount: '0',
+        },
+        fill: {
+            type: 'gradient',
+            opacity: 0.5,
+        },
+        grid: {
+            show: true,
+            borderColor: '#949494',
+            position: 'front',
+            xaxis: {
+                lines: {
+                    show: true
+                }
+            },   
+            yaxis: {
+                lines: {
+                    show: true
+                }
+            },  
         },
         dataLabels: {
           enabled: false
         },
-        colors: ["#03a70c"],
-        title: {
-          text: 'HeatMap Chart (Single color)'
+        colors: ['#03a70c'],
+        // title: {
+        //   text: 'Activity Chart'
+        // },
+        xaxis: {
+            labels: {
+                show: false
+            }
+        },
+        yaxis: {
+            reversed: true
         },
         tooltip: {
             enabled: true,
