@@ -15,6 +15,7 @@ func Get(path string) models.Conf {
 	viper.SetDefault("PORT", "8851")
 	viper.SetDefault("THEME", "grass")
 	viper.SetDefault("COLOR", "light")
+	viper.SetDefault("HEATCOLOR", "#03a70c")
 
 	viper.SetConfigFile(path)
 	viper.SetConfigType("yaml")
@@ -27,6 +28,7 @@ func Get(path string) models.Conf {
 	config.Port, _ = viper.Get("PORT").(string)
 	config.Theme, _ = viper.Get("THEME").(string)
 	config.Color, _ = viper.Get("COLOR").(string)
+	config.HeatColor, _ = viper.Get("HEATCOLOR").(string)
 
 	return config
 }
@@ -41,6 +43,7 @@ func Write(config models.Conf) {
 	viper.Set("port", config.Port)
 	viper.Set("theme", config.Theme)
 	viper.Set("color", config.Color)
+	viper.Set("heatcolor", config.HeatColor)
 
 	err := viper.WriteConfig()
 	check.IfError(err)

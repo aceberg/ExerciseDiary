@@ -1,13 +1,13 @@
 version: "3"
 services:
   ExerciseDiary:
-    image: aceberg/ExerciseDiary   
+    image: aceberg/exercisediary
     restart: unless-stopped
     volumes:
     - ~/.dockerdata/ExerciseDiary:/data/ExerciseDiary
     environment:
       TZ: Asia/Novosibirsk    # required, default: ""
       HOST: "0.0.0.0"         # optional, default: 0.0.0.0
-      PORT: "8830"            # optional, default: 8830
-      THEME: "simplex"        # optional, default: simplex
-      COLOR: "dark"           # optional, default: dark
+      PORT: "8851"            # optional, default: 8851
+      THEME: "grass"          # optional, default: grass
+      COLOR: "light"          # optional, default: light

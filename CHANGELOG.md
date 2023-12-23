@@ -3,9 +3,9 @@
 All notable changes to this project will be documented in this file.
 
 
-## [1.0.0] - 2023-07-25
+## [0.1.0] - 2023-12-23
 ### Added
-- One thing
+- Config: HeatMap color
 
 ### Changed
 

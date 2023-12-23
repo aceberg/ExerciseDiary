@@ -2,15 +2,16 @@ package models
 
 // Conf - web gui config
 type Conf struct {
-	Host     string
-	Port     string
-	Theme    string
-	Color    string
-	Icon     string
-	DBPath   string
-	DirPath  string
-	ConfPath string
-	NodePath string
+	Host      string
+	Port      string
+	Theme     string
+	Color     string
+	Icon      string
+	DBPath    string
+	DirPath   string
+	ConfPath  string
+	NodePath  string
+	HeatColor string
 }
 
 // Exercise - one exercise
@@ -52,11 +53,10 @@ type HeatMapData struct {
 
 // GuiData - web gui data
 type GuiData struct {
-	Config    Conf
-	Themes    []string
-	ExData    AllExData
-	GroupMap  map[string]string
-	OneEx     Exercise
-	HeatMap   []HeatMapData
-	HeatColor string
+	Config   Conf
+	Themes   []string
+	ExData   AllExData
+	GroupMap map[string]string
+	OneEx    Exercise
+	HeatMap  []HeatMapData
 }

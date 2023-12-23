@@ -102,7 +102,7 @@
 
 <script>
   setFormDateSets({{ .ExData.Sets }});
-  makeChart({{ .HeatMap }}, {{ .HeatColor }});
+  makeChart({{ .HeatMap }}, {{ .Config.HeatColor }});
 </script>
 {{ template "footer.html" }}
 {{ end }}

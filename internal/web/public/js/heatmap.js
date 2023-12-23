@@ -48,10 +48,9 @@ function makeChart(heat, hcolor) {
         options: {
             onClick: (e) => {
                 const res = window.myMatrix.getElementsAtEventForMode(e, 'nearest', { intersect: true }, true);
-
-                console.log('res =', res[0].element.$context.raw.d);
-
-                // window.location.href = "/diary_show?from="+dayD+"&to="+dayD+"";
+                let clickDate = res[0].element.$context.raw.d;
+                console.log('CLICK DATE =', clickDate);
+                document.getElementById("formDate").value = clickDate;
             },
             plugins: {
                 legend: false,

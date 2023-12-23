@@ -29,6 +29,7 @@ func saveConfigHandler(c *gin.Context) {
 	appConfig.Port = c.PostForm("port")
 	appConfig.Theme = c.PostForm("theme")
 	appConfig.Color = c.PostForm("color")
+	appConfig.HeatColor = c.PostForm("heatcolor")
 
 	conf.Write(appConfig)
 
