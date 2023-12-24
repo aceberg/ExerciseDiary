@@ -10,40 +10,50 @@ function addExercise(name, weight, reps) {
     document.getElementById('todayEx').insertAdjacentHTML('beforeend', html_to_insert);
 };
 
-function setToday() {
-    if (!today) {
-        today = window.sessionStorage.getItem("today");
-        // console.log('TODAY FROM STOR =', today);
-        if (today === null) {
-            today = new Date().toJSON().slice(0, 10);
-            window.sessionStorage.setItem("today", today);
-        }
-        document.getElementById("formDate").value = today;
-    }
-
-    // console.log('TODAY =', today);
-};
-
-function setFormDateSets(sets) {
-    today = document.getElementById("formDate").value;
-    setToday();
-    window.sessionStorage.setItem("today", today);
-
-    // console.log('DAY =', today);
-    // console.log('SETS =', sets);
-
+function setFormContent(sets, date) {
+    window.sessionStorage.setItem("today", date);
     document.getElementById('todayEx').innerHTML = "";
+    document.getElementById("formDate").value = date;
+    document.getElementById("realDate").value = date;
 
     let len = sets.length;
     for (let i = 0 ; i < len; i++) {
-        if (sets[i].Date == today) {
+        if (sets[i].Date == date) {
             addExercise(sets[i].Name, sets[i].Weight, sets[i].Reps);
         }
     }
 };
 
+function setFormDate(sets) {
+    today = document.getElementById("realDate").value;
+    if (!today) {
+        today = window.sessionStorage.getItem("today");
+
+        if (!today) {
+            today = new Date().toJSON().slice(0, 10);
+        }
+    }
+
+    setFormContent(sets, today);
+};
+
 function delExercise(exID) {
-    // console.log('DEL ID =', exID);
 
     document.getElementById(exID).remove();
+};
+
+function moveDayLeftRight(where, sets) {
+    dateStr = document.getElementById("realDate").value;
+
+    let year  = dateStr.substring(0,4);
+    let month = dateStr.substring(5,7);
+    let day   = dateStr.substring(8,10);
+    var date  = new Date(year, month-1, day);
+
+    date.setDate(date.getDate() + parseInt(where));
+    let left = date.toLocaleDateString('en-CA');
+
+    // console.log('LEFT =', left);
+
+    setFormContent(sets, left);
 };

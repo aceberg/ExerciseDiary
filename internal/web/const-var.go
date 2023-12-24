@@ -10,7 +10,7 @@ var (
 	// appConfig - config for Web Gui
 	appConfig models.Conf
 
-	//
+	// Exercise data
 	exData models.AllExData
 )
 

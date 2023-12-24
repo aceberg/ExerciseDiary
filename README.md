@@ -15,7 +15,7 @@ Light and easy workout diary
 - [Thanks](https://github.com/aceberg/exercisediary#thanks)
 
 
-![Screenshot](https://raw.githubusercontent.com/aceberg/exercisediary/main/assets/Screenshot%202023-04-02%20at%2022-27-40%20Resource%20Diary.png)
+![Screenshot](https://raw.githubusercontent.com/aceberg/ExerciseDiary/main/assets/Screenshot%202023-12-23%20at%2022-32-42%20Exercise%20Diary.png)
 
 ## Quick start
 
@@ -26,7 +26,7 @@ docker run --name exercisediary \
 -p 8851:8851 \
 aceberg/exercisediary
 ```
-<!-- Or use [docker-compose.yml](docker-compose.yml) -->
+Or use [docker-compose.yml](docker-compose.yml)
 
 
 ## Config

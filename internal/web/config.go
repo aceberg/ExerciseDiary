@@ -37,12 +37,3 @@ func saveConfigHandler(c *gin.Context) {
 
 	c.Redirect(http.StatusFound, "/config")
 }
-
-// func clearHandler(w http.ResponseWriter, r *http.Request) {
-
-// 	log.Println("INFO: delting all hosts from DB")
-
-// 	db.Clear(appConfig.DbPath)
-
-// 	http.Redirect(w, r, r.Header.Get("Referer"), 302)
-// }

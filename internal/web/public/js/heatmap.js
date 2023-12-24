@@ -11,11 +11,11 @@ function lowerData(heat) {
             v: val.V
         });
     }
-    console.log('LDATA =', ldata);
+    // console.log('LDATA =', ldata);
     return ldata;
 };
 
-function makeChart(heat, hcolor) {
+function makeChart(heat, hcolor, sets) {
     let ldata = lowerData(heat);
     var ctx = document.getElementById('matrix-chart').getContext('2d');
     window.myMatrix = new Chart(ctx, {
@@ -49,8 +49,9 @@ function makeChart(heat, hcolor) {
             onClick: (e) => {
                 const res = window.myMatrix.getElementsAtEventForMode(e, 'nearest', { intersect: true }, true);
                 let clickDate = res[0].element.$context.raw.d;
-                console.log('CLICK DATE =', clickDate);
-                document.getElementById("formDate").value = clickDate;
+                // console.log('CLICK DATE =', clickDate);
+
+                setFormContent(sets, clickDate); // index.js
             },
             plugins: {
                 legend: false,
