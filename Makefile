@@ -9,7 +9,7 @@ mod:
 
 run:
 	cd cmd/$(PKG_NAME)/ && \
-	go run . -n "http://192.168.2.3:8850"
+	go run .
 
 fmt:
 	go fmt ./...

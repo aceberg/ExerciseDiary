@@ -21,7 +21,7 @@
           <table class="table table-borderless">
             <tr>
               <td>Date</td>
-              <td><input name="date" type="date" class="form-control"></td>
+              <td><input name="date" type="date" class="form-control" id="weightDate"></td>
             </tr>
             <tr>
               <td>Weight</td>
@@ -46,13 +46,13 @@
           <div class="card-body">
           <div class="hstack gap-2">
             <div class="chart-container m-auto">
-                <canvas id="matrix-chart" style="max-height: 100px; width: 820px;">
+                <canvas id="matrix-chart" style="max-height: 100px; width: 820px;"></canvas>
             </div>
             <div class="chart-container m-auto">
-                <canvas id="weight-chart" style="max-height: 100px;">
+                <canvas id="weight-chart" style="max-height: 100px;"></canvas>
             </div>
             <div class="m-auto">
-              <button class="btn del-set-button" title="Add weight" data-bs-toggle="modal" data-bs-target="#mWeight">
+              <button class="btn del-set-button" title="Add weight" data-bs-toggle="modal" data-bs-target="#mWeight" onclick='setWeightDate()'>
                 <h4><i class="bi bi-window-plus"></i></h4>
               </button>
             </div>
@@ -77,7 +77,7 @@
                         {{ range $.ExData.Exs }}
                         {{ if eq .Group $gr }}
                         <div class="hstack gap-2">
-                            <a href="/exercise/?id={{ .ID }}"><button class="btn add-exercise-button" title="Edit">
+                            <a href="/exercise/?id={{ .ID }}"><button class="btn del-set-button" title="Edit">
                               <i class="bi bi-pencil-square"></i>
                             </button></a>
                             <!-- Button trigger modal -->
@@ -107,6 +107,7 @@
     </div>
   </div>
 </div>
+<!-- End Modal -->
                             <button class="btn exercise-button" onclick='addExercise("{{ .Name }}", "{{ .Weight }}", "{{ .Reps }}")' title="Weight: {{ .Weight }}; Reps: {{ .Reps }};">{{ .Name }}</button>
                             <button class="btn add-exercise-button" onclick='addExercise("{{ .Name }}", "{{ .Weight }}", "{{ .Reps }}")' title="Add">
                                 <i class="bi bi-arrow-right-square"></i>

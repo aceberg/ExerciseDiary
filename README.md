@@ -12,6 +12,7 @@ Light and easy workout diary
 - [Quick start](https://github.com/aceberg/exercisediary#quick-start)
 - [Config](https://github.com/aceberg/exercisediary#config)
 - [Options](https://github.com/aceberg/exercisediary#options)
+- [Local network only](https://github.com/aceberg/exercisediary#local-network-only)
 - [Roadmap](https://github.com/aceberg/exercisediary#roadmap)
 - [Thanks](https://github.com/aceberg/exercisediary#thanks)
 
@@ -48,7 +49,24 @@ Configuration can be done through config file or environment variables
 
 | Key  | Description | Default | 
 | --------  | ----------- | ------- | 
-| -c | Path to config dir | /data/ExerciseDiary | 
+| -d | Path to config dir | /data/ExerciseDiary | 
+| -n | Path to local JS and Themes ([node-bootstrap](https://github.com/aceberg/my-dockerfiles/tree/main/node-bootstrap)) | "" | 
+
+## Local network only
+By default, this app pulls themes, icons and fonts from the internet. But, in some cases, it may be useful to have an independent from global network setup. I created a separate [image](https://github.com/aceberg/my-dockerfiles/tree/main/node-bootstrap) with all necessary modules and fonts.    
+```sh
+docker run --name node-bootstrap       \
+    -v ~/.dockerdata/icons:/app/icons  \ # For local images
+    -p 8850:8850                       \
+    aceberg/node-bootstrap
+```
+```sh
+docker run --name exdiary \
+    -v ~/.dockerdata/ExerciseDiary:/data/ExerciseDiary \
+    -p 8849:8849 \
+    aceberg/exercisediary -n "http://$YOUR_IP:8850"
+```
+Or use [docker-compose](docker-compose-local.yml)
 
 ## Roadmap
 - [x] HeatMap

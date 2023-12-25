@@ -50,7 +50,7 @@ function makeChart(heat, hcolor, sets) {
                 const res = window.myMatrix.getElementsAtEventForMode(e, 'nearest', { intersect: true }, true);
                 let clickDate = res[0].element.$context.raw.d;
                 // console.log('CLICK DATE =', clickDate);
-
+                
                 setFormContent(sets, clickDate); // index.js
             },
             plugins: {

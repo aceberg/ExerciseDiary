@@ -1,8 +1,10 @@
 version: "3"
 services:
-  ExerciseDiary:
+  exdiary:
     image: aceberg/exercisediary
     restart: unless-stopped
+    ports:
+    - 8851:8851
     volumes:
     - ~/.dockerdata/ExerciseDiary:/data/ExerciseDiary
     environment:

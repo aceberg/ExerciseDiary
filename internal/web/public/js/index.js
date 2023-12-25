@@ -16,10 +16,12 @@ function setFormContent(sets, date) {
     document.getElementById("formDate").value = date;
     document.getElementById("realDate").value = date;
 
-    let len = sets.length;
-    for (let i = 0 ; i < len; i++) {
-        if (sets[i].Date == date) {
-            addExercise(sets[i].Name, sets[i].Weight, sets[i].Reps);
+    if (sets) {
+        let len = sets.length;
+        for (let i = 0 ; i < len; i++) {
+            if (sets[i].Date == date) {
+                addExercise(sets[i].Name, sets[i].Weight, sets[i].Reps);
+            }
         }
     }
 };
@@ -35,6 +37,11 @@ function setFormDate(sets) {
     }
 
     setFormContent(sets, today);
+};
+
+function setWeightDate() {
+    let date = document.getElementById("realDate").value;
+    document.getElementById("weightDate").value = date;
 };
 
 function delExercise(exID) {

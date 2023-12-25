@@ -16,6 +16,7 @@ function splitWeight(weight) {
 
 function weightChart(weight, wcolor) {
     
+  if (weight) {
     splitWeight(weight);
     // console.log('FDATA =', dates, ws);
 
@@ -49,5 +50,5 @@ function weightChart(weight, wcolor) {
         }
       }
     });
-  
+  }
 };
