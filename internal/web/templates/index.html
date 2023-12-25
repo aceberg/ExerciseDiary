@@ -2,17 +2,60 @@
 </head>
 <script src="./fs/public/js/heatmap.js"></script>
 <script src="./fs/public/js/index.js"></script>
+<script src="./fs/public/js/weight.js"></script>
 <link rel="stylesheet" type="text/css" href="./fs/public/css/index.css" />
-<!-- <body onload='setFormDateSets({{ .ExData.Sets }})'> -->
 <body>
 <br>
+<!-- Add Weight Modal -->
+<div class="modal" id="mWeight">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add weight</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/weight/" method="post" name="sets">
+          <table class="table table-borderless">
+            <tr>
+              <td>Date</td>
+              <td><input name="date" type="date" class="form-control"></td>
+            </tr>
+            <tr>
+              <td>Weight</td>
+              <td><input name="weight" type="number" class="form-control"></td>
+            </tr>
+            <tr>
+              <td>
+                <button type="submit" class="btn btn-primary">Save</button>
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Modal -->
 <div class="container">
     <div class="row">
       <div class="col">
         <div class="card border-primary">
           <div class="card-body">
-          <div class="chart-container">
-              <canvas id="matrix-chart" style="max-height: 100px; width: 820px;" class="m-auto">
+          <div class="hstack gap-2">
+            <div class="chart-container m-auto">
+                <canvas id="matrix-chart" style="max-height: 100px; width: 820px;">
+            </div>
+            <div class="chart-container m-auto">
+                <canvas id="weight-chart" style="max-height: 100px;">
+            </div>
+            <div class="m-auto">
+              <button class="btn del-set-button" title="Add weight" data-bs-toggle="modal" data-bs-target="#mWeight">
+                <h4><i class="bi bi-window-plus"></i></h4>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -33,7 +76,7 @@
                       <div class="accordion-body">
                         {{ range $.ExData.Exs }}
                         {{ if eq .Group $gr }}
-                        <div class="d-grid gap-2 d-md-block">
+                        <div class="hstack gap-2">
                             <a href="/exercise/?id={{ .ID }}"><button class="btn add-exercise-button" title="Edit">
                               <i class="bi bi-pencil-square"></i>
                             </button></a>
@@ -108,6 +151,7 @@
 <script>
   setFormDate({{ .ExData.Sets }});
   makeChart({{ .HeatMap }}, {{ .Config.HeatColor }}, {{ .ExData.Sets }});
+  weightChart({{ .ExData.Weight }}, {{ .Config.HeatColor }});
 </script>
 {{ template "footer.html" }}
 {{ end }}

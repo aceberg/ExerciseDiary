@@ -16,6 +16,7 @@ func indexHandler(c *gin.Context) {
 
 	exData.Exs = db.SelectEx(appConfig.DBPath)
 	exData.Sets = db.SelectSet(appConfig.DBPath)
+	exData.Weight = db.SelectW(appConfig.DBPath)
 
 	guiData.Config = appConfig
 	guiData.ExData = exData
@@ -25,6 +26,11 @@ func indexHandler(c *gin.Context) {
 	// Sort exercises by Place
 	sort.Slice(guiData.ExData.Exs, func(i, j int) bool {
 		return guiData.ExData.Exs[i].Place < guiData.ExData.Exs[j].Place
+	})
+
+	// Sort weight by Date
+	sort.Slice(guiData.ExData.Weight, func(i, j int) bool {
+		return guiData.ExData.Weight[i].Date < guiData.ExData.Weight[j].Date
 	})
 
 	c.HTML(http.StatusOK, "header.html", guiData)

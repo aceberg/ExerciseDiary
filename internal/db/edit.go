@@ -31,6 +31,13 @@ func Create(path string) {
 		"REPS"		INTEGER
 	);`
 	exec(path, sqlStatement)
+
+	sqlStatement = `CREATE TABLE IF NOT EXISTS weight (
+		"ID"		INTEGER PRIMARY KEY,
+		"DATE"		TEXT,
+		"WEIGHT"    INTEGER
+	);`
+	exec(path, sqlStatement)
 }
 
 // InsertEx - insert one exercise into DB
@@ -57,6 +64,17 @@ func InsertSet(path string, ex models.Set) {
 	ex.Name = quoteStr(ex.Name)
 
 	sqlStatement = fmt.Sprintf(sqlStatement, ex.Date, ex.Name, ex.Color, ex.Weight, ex.Reps)
+
+	exec(path, sqlStatement)
+}
+
+// InsertW - insert weight
+func InsertW(path string, ex models.BodyWeight) {
+
+	sqlStatement := `INSERT INTO weight (DATE, WEIGHT) 
+	VALUES ('%s','%d');`
+
+	sqlStatement = fmt.Sprintf(sqlStatement, ex.Date, ex.Weight)
 
 	exec(path, sqlStatement)
 }

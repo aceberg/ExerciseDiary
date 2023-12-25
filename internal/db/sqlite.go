@@ -56,3 +56,16 @@ func SelectSet(path string) (sets []models.Set) {
 
 	return sets
 }
+
+// SelectW - select all weight from DB
+func SelectW(path string) (w []models.BodyWeight) {
+
+	mu.Lock()
+	dbx := connect(path)
+	err := dbx.Select(&w, "SELECT * FROM weight ORDER BY ID ASC")
+	mu.Unlock()
+
+	check.IfError(err)
+
+	return w
+}

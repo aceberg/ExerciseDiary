@@ -12,6 +12,7 @@ Light and easy workout diary
 - [Quick start](https://github.com/aceberg/exercisediary#quick-start)
 - [Config](https://github.com/aceberg/exercisediary#config)
 - [Options](https://github.com/aceberg/exercisediary#options)
+- [Roadmap](https://github.com/aceberg/exercisediary#roadmap)
 - [Thanks](https://github.com/aceberg/exercisediary#thanks)
 
 
@@ -47,7 +48,15 @@ Configuration can be done through config file or environment variables
 
 | Key  | Description | Default | 
 | --------  | ----------- | ------- | 
-| -c | Path to config dir | /data/ExerciseDiary |  
+| -c | Path to config dir | /data/ExerciseDiary | 
+
+## Roadmap
+- [x] HeatMap
+- [x] Left/Right buttons for date
+- [x] Local Themes and JS
+- [x] BodyWeight Chart
+- [ ] Login/Password
+- [ ] Statistics page
 
 ## Thanks
 - All go packages listed in [dependencies](https://github.com/aceberg/exercisediary/network/dependencies)

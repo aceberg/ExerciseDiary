@@ -54,6 +54,7 @@ func Gui(dirPath, nodePath string) {
 	router.POST("/exercise/", saveExerciseHandler) // exercise.go
 	router.POST("/exdel/", deleteExerciseHandler)  // exercise.go
 	router.POST("/set/", setHandler)               // set.go
+	router.POST("/weight/", weightHandler)         // weight.go
 
 	err := router.Run(address)
 	check.IfError(err)

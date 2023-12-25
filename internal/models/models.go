@@ -39,8 +39,9 @@ type Set struct {
 
 // AllExData - all sets and exercises
 type AllExData struct {
-	Exs  []Exercise
-	Sets []Set
+	Exs    []Exercise
+	Sets   []Set
+	Weight []BodyWeight
 }
 
 // HeatMapData - data for HeatMap
@@ -49,6 +50,13 @@ type HeatMapData struct {
 	Y string
 	D string
 	V int
+}
+
+// BodyWeight - store weight
+type BodyWeight struct {
+	ID     int    `db:"ID"`
+	Date   string `db:"DATE"`
+	Weight int    `db:"WEIGHT"`
 }
 
 // GuiData - web gui data
