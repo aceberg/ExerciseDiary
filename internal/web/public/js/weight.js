@@ -6,8 +6,8 @@ function splitWeight(weight) {
     ws = [];
 
     weight = weight.slice(-7)
-
-    for (let i = 0 ; i < 7; i++) {
+    let arrayLength = weight.length;
+    for (let i = 0 ; i < arrayLength; i++) {
         dates.push(weight[i].Date);
         ws.push(weight[i].Weight)
     }

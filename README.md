@@ -16,7 +16,7 @@ Light and easy workout diary
 - [Thanks](https://github.com/aceberg/exercisediary#thanks)
 
 
-![Screenshot](https://raw.githubusercontent.com/aceberg/ExerciseDiary/main/assets/Screenshot%202023-12-23%20at%2022-32-42%20Exercise%20Diary.png)
+![Screenshot](https://raw.githubusercontent.com/aceberg/ExerciseDiary/main/assets/Screenshot%202023-12-25%20at%2023-19-08%20Exercise%20Diary.png)
 
 ## Quick start
 

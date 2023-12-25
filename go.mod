@@ -5,7 +5,7 @@ go 1.21.4
 require (
 	github.com/gin-gonic/gin v1.9.1
 	github.com/jmoiron/sqlx v1.3.5
-	github.com/spf13/viper v1.18.1
+	github.com/spf13/viper v1.18.2
 	modernc.org/sqlite v1.28.0
 )
 

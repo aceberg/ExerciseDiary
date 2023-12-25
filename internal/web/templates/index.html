@@ -150,8 +150,8 @@
 
 <script>
   setFormDate({{ .ExData.Sets }});
-  makeChart({{ .HeatMap }}, {{ .Config.HeatColor }}, {{ .ExData.Sets }});
   weightChart({{ .ExData.Weight }}, {{ .Config.HeatColor }});
+  makeChart({{ .HeatMap }}, {{ .Config.HeatColor }}, {{ .ExData.Sets }});
 </script>
 {{ template "footer.html" }}
 {{ end }}
