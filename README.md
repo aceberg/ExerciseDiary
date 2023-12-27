@@ -7,7 +7,7 @@
     <img src="https://raw.githubusercontent.com/aceberg/exercisediary/main/assets/logo.png" width="35" />
 </a>Exercise Diary</h1>
 
-Light and easy workout diary
+Workout diary with GitHub-style year visualization
 
 - [Quick start](https://github.com/aceberg/exercisediary#quick-start)
 - [Config](https://github.com/aceberg/exercisediary#config)
@@ -22,7 +22,7 @@ Light and easy workout diary
 ## Quick start
 
 ```sh
-docker run --name exercisediary \
+docker run --name exdiary \
 -e "TZ=Asia/Novosibirsk" \
 -v ~/.dockerdata/ExerciseDiary:/data/ExerciseDiary \
 -p 8851:8851 \
@@ -40,7 +40,7 @@ Configuration can be done through config file or environment variables
 | --------  | ----------- | ------- |
 | HOST | Listen address | 0.0.0.0 |
 | PORT   | Port for web GUI | 8851 |
-| THEME | Any theme name from https://bootswatch.com in lowcase | grass |
+| THEME | Any theme name from https://bootswatch.com in lowcase or [additional](https://github.com/aceberg/aceberg-bootswatch-fork) (emerald, grass, sand)| grass |
 | COLOR | Background color: light or dark | light |
 | HEATCOLOR | HeatMap color | #03a70c |
 | TZ | Set your timezone for correct time | "" |
