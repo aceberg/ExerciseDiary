@@ -63,7 +63,7 @@ docker run --name node-bootstrap       \
 ```sh
 docker run --name exdiary \
     -v ~/.dockerdata/ExerciseDiary:/data/ExerciseDiary \
-    -p 8849:8849 \
+    -p 8851:8851 \
     aceberg/exercisediary -n "http://$YOUR_IP:8850"
 ```
 Or use [docker-compose](docker-compose-local.yml)

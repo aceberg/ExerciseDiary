@@ -18,7 +18,7 @@ services:
     volumes:
     - ~/.dockerdata/ExerciseDiary:/data/ExerciseDiary       # app data (set your own path instead of dockerdata)
     environment:
-      TZ: Asia/Novosibirsk    # required for uptime monitor, default ""
+      TZ: Asia/Novosibirsk    # required, default ""
       HOST: "0.0.0.0"         # optional, default: 0.0.0.0
       PORT: "8851"            # optional, default: 8851
       THEME: "grass"          # optional, default: grass
