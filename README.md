@@ -1,6 +1,6 @@
 [![Main-Docker](https://github.com/aceberg/exercisediary/actions/workflows/main-docker.yml/badge.svg)](https://github.com/aceberg/exercisediary/actions/workflows/main-docker.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/aceberg/exercisediary)](https://goreportcard.com/report/github.com/aceberg/exercisediary)
-[![Maintainability](https://api.codeclimate.com/v1/badges/e8f67994120fc7936aeb/maintainability)](https://codeclimate.com/github/aceberg/exercisediary/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/e8f67994120fc7936aeb/maintainability)](https://codeclimate.com/github/aceberg/ExerciseDiary/maintainability)
 ![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/aceberg/exercisediary)
 
 <h1><a href="https://github.com/aceberg/exercisediary">
