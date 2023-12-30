@@ -49,12 +49,13 @@ func Gui(dirPath, nodePath string) {
 	router.GET("/config/", configHandler)     // config.go
 	router.GET("/exercise/", exerciseHandler) // exercise.go
 	router.GET("/stats/", statsHandler)       // stats.go
+	router.GET("/weight/", weightHandler)     // weight.go
 
 	router.POST("/config/", saveConfigHandler)     // config.go
 	router.POST("/exercise/", saveExerciseHandler) // exercise.go
 	router.POST("/exdel/", deleteExerciseHandler)  // exercise.go
 	router.POST("/set/", setHandler)               // set.go
-	router.POST("/weight/", weightHandler)         // weight.go
+	router.POST("/weight/", addWeightHandler)      // weight.go
 
 	err := router.Run(address)
 	check.IfError(err)

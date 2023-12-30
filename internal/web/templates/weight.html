@@ -1,0 +1,65 @@
+{{ define "weight.html" }}
+<script src="/fs/public/js/weight.js"></script>
+<script src="/fs/public/js/weight-chart.js"></script>
+<link rel="stylesheet" type="text/css" href="/fs/public/css/index.css" />
+<body>
+    <div class="container mt-5">
+    <div class="row">
+        <div class="col-4">
+            <div class="card border-primary">
+                <div class="card-header">Weight</div>
+                <div class="card-body">
+                <table class="table table-borderless">
+                    <thead>
+                        <th>Date</th>
+                        <th>Weight</th>
+                        <th>Del</th>
+                    </thead>
+                    <tbody>
+                {{ range .ExData.Weight }}
+                    <tr>
+                        <td>{{ .Date }}</td>
+                        <td>{{ .Weight }}</td>
+                        <td>
+                            <a href="/weight/?del={{ .ID }}">
+                                <button class="btn del-set-button" title="Delete" ><i class="bi bi-x-square"></i></button>
+                            </a>
+                        </td>
+                    </tr>
+                {{ end }}
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="card border-primary">
+                <div class="card-header">Chart</div>
+                <div class="card-body">
+                    <div class="chart-container m-auto">
+                        <canvas id="weight-chart" style="max-height: 200px;"></canvas>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="card border-primary">
+                <div class="card-header">Add weight</div>
+                <div class="card-body">
+                    <form action="/weight/" method="post" name="sets" class="input-group">
+                        <input name="date" type="date" class="form-control" id="todayDate">
+                        <input name="weight" type="number" class="form-control">
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+        
+<script>
+    setToday();
+    weightChart({{ .ExData.Weight }}, {{ .Config.HeatColor }}, -20);
+</script>
+
+{{ template "footer.html" }}
+{{ end }}

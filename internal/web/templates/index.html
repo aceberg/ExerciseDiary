@@ -1,9 +1,9 @@
 {{ define "index.html" }}
 </head>
-<script src="./fs/public/js/heatmap.js"></script>
-<script src="./fs/public/js/index.js"></script>
-<script src="./fs/public/js/weight.js"></script>
-<link rel="stylesheet" type="text/css" href="./fs/public/css/index.css" />
+<script src="/fs/public/js/heatmap.js"></script>
+<script src="/fs/public/js/index.js"></script>
+<script src="/fs/public/js/weight-chart.js"></script>
+<link rel="stylesheet" type="text/css" href="/fs/public/css/index.css" />
 <body>
 <br>
 <!-- Add Weight Modal -->
@@ -151,7 +151,7 @@
 
 <script>
   setFormDate({{ .ExData.Sets }});
-  weightChart({{ .ExData.Weight }}, {{ .Config.HeatColor }});
+  weightChart({{ .ExData.Weight }}, {{ .Config.HeatColor }}, -7);
   makeChart({{ .HeatMap }}, {{ .Config.HeatColor }}, {{ .ExData.Sets }});
 </script>
 {{ template "footer.html" }}

@@ -99,6 +99,16 @@ func DeleteSet(path string, id int) {
 	exec(path, sqlStatement)
 }
 
+// DeleteW - delete weight
+func DeleteW(path string, id int) {
+
+	sqlStatement := `DELETE FROM weight WHERE ID='%d';`
+
+	sqlStatement = fmt.Sprintf(sqlStatement, id)
+
+	exec(path, sqlStatement)
+}
+
 // ClearEx - delete all exercises from table
 func ClearEx(path string) {
 	sqlStatement := `DELETE FROM exercises;`
