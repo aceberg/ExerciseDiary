@@ -1,7 +1,7 @@
 package db
 
 import (
-	"sync"
+	// "sync"
 
 	"github.com/jmoiron/sqlx"
 
@@ -12,7 +12,7 @@ import (
 	"github.com/aceberg/ExerciseDiary/internal/models"
 )
 
-var mu sync.Mutex
+// var mu sync.Mutex
 
 func connect(path string) *sqlx.DB {
 	dbx, err := sqlx.Connect("sqlite", path)
@@ -23,10 +23,10 @@ func connect(path string) *sqlx.DB {
 
 func exec(path string, sqlStatement string) {
 
-	mu.Lock()
+	// mu.Lock()
 	dbx := connect(path)
 	_, err := dbx.Exec(sqlStatement)
-	mu.Unlock()
+	// mu.Unlock()
 
 	check.IfError(err)
 }
@@ -34,10 +34,10 @@ func exec(path string, sqlStatement string) {
 // SelectEx - select all exercises from DB
 func SelectEx(path string) (exes []models.Exercise) {
 
-	mu.Lock()
+	// mu.Lock()
 	dbx := connect(path)
 	err := dbx.Select(&exes, "SELECT * FROM exercises ORDER BY ID ASC")
-	mu.Unlock()
+	// mu.Unlock()
 
 	check.IfError(err)
 
@@ -47,10 +47,10 @@ func SelectEx(path string) (exes []models.Exercise) {
 // SelectSet - select all sets from DB
 func SelectSet(path string) (sets []models.Set) {
 
-	mu.Lock()
+	// mu.Lock()
 	dbx := connect(path)
 	err := dbx.Select(&sets, "SELECT * FROM sets ORDER BY ID ASC")
-	mu.Unlock()
+	// mu.Unlock()
 
 	check.IfError(err)
 
@@ -60,10 +60,10 @@ func SelectSet(path string) (sets []models.Set) {
 // SelectW - select all weight from DB
 func SelectW(path string) (w []models.BodyWeight) {
 
-	mu.Lock()
+	// mu.Lock()
 	dbx := connect(path)
 	err := dbx.Select(&w, "SELECT * FROM weight ORDER BY ID ASC")
-	mu.Unlock()
+	// mu.Unlock()
 
 	check.IfError(err)
 
