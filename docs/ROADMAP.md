@@ -6,18 +6,21 @@
 - [x] Local Themes and JS
 - [x] BodyWeight Chart
 
+## IN PROGRESS
+
+- [ ] Weight page
+
 ## TODO
 - [ ] Login/Password
 - [ ] Statistics page
-- [ ] Weight page
 - [ ] Mobile layout
 - [ ] PostgreSQL DB option
 - [ ] Add exercise group with 1 button
 
 ## MAYBE
 
-- [ ] Sets (#1)
-- [ ] Weight field take decimals (#4)
+- [ ] Sets [#1](https://github.com/aceberg/ExerciseDiary/issues/1)
+- [ ] Weight field take decimals [#4](https://github.com/aceberg/ExerciseDiary/issues/4)
 - [ ] Multiple users
 
 ## NOT DOING

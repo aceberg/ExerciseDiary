@@ -13,7 +13,7 @@ Workout diary with GitHub-style year visualization
 - [Config](https://github.com/aceberg/exercisediary#config)
 - [Options](https://github.com/aceberg/exercisediary#options)
 - [Local network only](https://github.com/aceberg/exercisediary#local-network-only)
-- [Roadmap](https://github.com/aceberg/exercisediary#roadmap)
+- [Roadmap](https://github.com/aceberg/ExerciseDiary/blob/main/docs/ROADMAP.md)
 - [Thanks](https://github.com/aceberg/exercisediary#thanks)
 
 

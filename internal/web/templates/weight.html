@@ -11,6 +11,7 @@
                 <div class="card-body">
                 <table class="table table-borderless">
                     <thead>
+                        <th></th>
                         <th>Date</th>
                         <th>Weight</th>
                         <th>Del</th>
@@ -18,6 +19,10 @@
                     <tbody id="weightList">
                     </tbody>
                 </table>
+                <div class="gap-3 hstack">
+                    <button onclick='setWeights({{ .ExData.Weight }}, {{ .Config.HeatColor }}, 1);' class="m-auto btn del-set-button"><i class="bi bi-arrow-left-square"></i></button>
+                    <button onclick='setWeights({{ .ExData.Weight }}, {{ .Config.HeatColor }}, -1);' class="m-auto btn del-set-button"><i class="bi bi-arrow-right-square"></i></button>
+                </div>
                 </div>
             </div>
         </div>
@@ -47,8 +52,7 @@
         
 <script>
     setToday();
-    setWeights({{ .ExData.Weight }}, 10);
-    weightChart({{ .ExData.Weight }}, {{ .Config.HeatColor }}, -10);
+    setWeights({{ .ExData.Weight }}, {{ .Config.HeatColor }}, 0);
 </script>
 
 {{ template "footer.html" }}
