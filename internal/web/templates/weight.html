@@ -15,18 +15,7 @@
                         <th>Weight</th>
                         <th>Del</th>
                     </thead>
-                    <tbody>
-                {{ range .ExData.Weight }}
-                    <tr>
-                        <td>{{ .Date }}</td>
-                        <td>{{ .Weight }}</td>
-                        <td>
-                            <a href="/weight/?del={{ .ID }}">
-                                <button class="btn del-set-button" title="Delete" ><i class="bi bi-x-square"></i></button>
-                            </a>
-                        </td>
-                    </tr>
-                {{ end }}
+                    <tbody id="weightList">
                     </tbody>
                 </table>
                 </div>
@@ -58,7 +47,8 @@
         
 <script>
     setToday();
-    weightChart({{ .ExData.Weight }}, {{ .Config.HeatColor }}, -20);
+    setWeights({{ .ExData.Weight }}, 10);
+    weightChart({{ .ExData.Weight }}, {{ .Config.HeatColor }}, -10);
 </script>
 
 {{ template "footer.html" }}
