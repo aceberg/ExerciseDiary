@@ -69,12 +69,7 @@ docker run --name exdiary \
 Or use [docker-compose](docker-compose-local.yml)
 
 ## Roadmap
-- [x] HeatMap
-- [x] Left/Right buttons for date
-- [x] Local Themes and JS
-- [x] BodyWeight Chart
-- [ ] Login/Password
-- [ ] Statistics page
+Moved to [docs/ROADMAP.md](docs/ROADMAP.md)
 
 ## Thanks
 - All go packages listed in [dependencies](https://github.com/aceberg/exercisediary/network/dependencies)
