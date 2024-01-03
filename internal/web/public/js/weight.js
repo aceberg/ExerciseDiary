@@ -27,11 +27,15 @@ function setWeights(weights, wcolor, off) {
 
     if (arrayLength > move) {
         start = arrayLength - move;
+        end = start + step;
     } else {
-        start = 0;
         offset = offset - 1;
+        if (arrayLength > step) {
+            end = step;
+        } else {
+            end = arrayLength;
+        }
     };
-    end = start + step;
 
     // console.log("OFF =", offset, ", START =", start, ", END =", end)
 
