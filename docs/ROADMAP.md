@@ -5,10 +5,9 @@
 - [x] Left/Right buttons for date
 - [x] Local Themes and JS
 - [x] BodyWeight Chart
+- [x] Weight page
 
 ## IN PROGRESS
-
-- [ ] Weight page
 
 ## TODO
 - [ ] Login/Password
