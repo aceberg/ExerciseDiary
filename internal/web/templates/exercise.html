@@ -1,12 +1,12 @@
 {{ define "exercise.html" }}
 
 <body>
-    <div class="container mt-5">
+    <div class="container-lg mt-5">
     <div class="row">
-        <div class="col">
+        <div class="col-md">
         <div class="card border-primary">
             <div class="card-header">Exercise</div>
-        <div class="card-body">
+        <div class="card-body table-responsive">
         <table class="table table-borderless">
             <form action="/exercise/" method="post">
                 <input name="id" type="hidden" value="{{ .OneEx.ID }}">
@@ -52,7 +52,7 @@
         </div>
         </div>
         </div>
-        <div class="col">
+        <div class="col-md">
             <div class="card border-primary">
                 <div class="card-header">Image</div>
                 <div class="card-body">

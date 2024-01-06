@@ -39,19 +39,27 @@
   </div>
 </div>
 <!-- End Modal -->
-<div class="container">
+<div class="container-lg">
     <div class="row">
-      <div class="col">
+      <div class="col-md">
         <div class="card border-primary">
           <div class="card-body">
-          <div class="hstack gap-2">
-            <div class="chart-container m-auto">
-                <canvas id="matrix-chart" style="max-height: 100px; width: 820px;"></canvas>
+          <!-- <div class="hstack gap-2"> -->
+          <div class="row justify-content-evenly">
+            <div class="col-lg-7">
+              <!-- <div class="chart-container" style="max-width: fit-content;">
+                  <canvas id="matrix-chart" style="max-height: 100px; width: 760px;"></canvas>
+              </div> -->
+            <div id="matrix-container" class="chart-container" style="max-height: 100px; width: 1100px;overflow-x: scroll;">
+                <canvas id="matrix-chart" style="height: 100%; width: 100%;"></canvas>
             </div>
-            <div class="chart-container m-auto">
-                <canvas id="weight-chart" style="max-height: 100px;"></canvas>
             </div>
-            <div class="m-auto">
+            <div class="col-md-2">
+              <div class="chart-container" style="max-width: fit-content">
+                  <canvas id="weight-chart" style="max-height: 100px;"></canvas>
+              </div>
+            </div>
+            <div class="col-sm-1">
               <button class="btn del-set-button" title="Add weight" data-bs-toggle="modal" data-bs-target="#mWeight" onclick='setWeightDate()'>
                 <h4><i class="bi bi-window-plus"></i></h4>
               </button>
@@ -63,7 +71,7 @@
     </div>
     <br>
     <div class="row">
-        <div class="col">
+        <div class="col-md">
             <div class="accordion">
                 {{ range $gr, $grID := .GroupMap }}
                 <div class="accordion-item border-primary">
@@ -121,7 +129,7 @@
                 {{ end }}              
               </div>
         </div>
-        <div class="col">
+        <div class="col-md">
             <div class="card border-primary">
                 <!-- <div class="card-header">Today</div> -->
                 <div class="card-body">
@@ -132,15 +140,17 @@
                   </div>
                 <form action="/set/" method="post" name="sets">
                   <input name="date" type="hidden" id="formDate">
-                  <table class="table table-borderless">
-                    <thead>
-                        <th style="width: 60%;">Name</th>
-                        <th>Weight</th>
-                        <th>Reps</th>
-                        <th></th>
-                    </thead>
-                    <tbody id="todayEx"></tbody>
-                  </table>
+                  <div class="table-responsive">
+                    <table class="table table-borderless">
+                      <thead>
+                          <th class="col-5">Name</th>
+                          <th class="col-3">Weight</th>
+                          <th class="col-3">Reps</th>
+                          <th class="col-1"></th>
+                      </thead>
+                      <tbody id="todayEx"></tbody>
+                    </table>
+                  </div>
                   <button type="submit" class="btn btn-primary">Save</button>
                 </form>
                 </div>
