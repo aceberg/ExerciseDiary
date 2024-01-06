@@ -67,4 +67,5 @@ type GuiData struct {
 	GroupMap map[string]string
 	OneEx    Exercise
 	HeatMap  []HeatMapData
+	Version  string
 }
