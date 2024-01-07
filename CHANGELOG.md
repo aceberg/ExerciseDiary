@@ -2,6 +2,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.1.3] - 2024-01-07
+### Added
+- Version on Config page
+
+### Changed
+- Better mobile view
+
 ## [0.1.2] - 2024-01-04
 ### Added
 - Weight page
