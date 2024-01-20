@@ -10,10 +10,10 @@
 
 ## IN PROGRESS
 - [ ] Mobile layout
+- [ ] Statistics page
 
 ## TODO
 - [ ] Login/Password
-- [ ] Statistics page
 - [ ] PostgreSQL DB option
 
 ## MAYBE

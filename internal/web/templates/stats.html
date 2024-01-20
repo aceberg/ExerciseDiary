@@ -1,134 +1,58 @@
 {{ define "stats.html" }}
 </head>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-chart-matrix@2.0.1"></script>
+<script src="/fs/public/js/stats.js"></script>
+<script src="/fs/public/js/weight-chart.js"></script>
+<link rel="stylesheet" type="text/css" href="/fs/public/css/index.css" />
 <body>
-    <div class="container mt-5">
-    <div class="row">
-        <div class="col-8">
-            <div class="card border-primary">
-                <div class="card-header">HeatMap</div>
-            <div class="card-body">
-                <div class="chart-container">
-                    <canvas id="matrix-chart" style="max-height: 110px;">
+    <div class="container-lg">
+        <br>
+        <div class="row">
+            <div class="col-md">
+                <div class="card border-primary">
+                    <div class="card-header">Exercise stats</div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <form onchange='setStatsPage({{ .ExData.Sets }}, {{ .Config.HeatColor }});'>
+                            <select class="form-select" id="ex-value">
+                                {{ range $gr := .GroupMap }}
+                                <option value="{{ $gr }}">{{ $gr }}</option>
+                                {{ end }}
+                            </select>
+                        </form>
+                        <table class="table table-borderless">
+                            <thead>
+                                <th class="col-1"></th>
+                                <th class="col-3">Date</th>
+                                <th class="col-4">Reps</th>
+                                <th class="col-4">Weight</th>
+                            </thead>
+                            <tbody id="stats-exs">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
                 </div>
             </div>
+            <div class="col-md">
+                <div class="card border-primary">
+                    <div class="card-header">Reps</div>
+                    <div class="card-body">
+                        <canvas id="stats-reps" style="max-height: 110px;"></canvas>
+                    </div>
+                </div>
+                <br>
+                <div class="card border-primary">
+                    <div class="card-header">Weight</div>
+                    <div class="card-body">
+                        <canvas id="stats-weight" style="max-height: 110px;"></canvas>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-4">
-            <div class="card border-primary">
-                <div class="card-header">About</div>
-            <div class="card-body">
-            </div>
-            </div>
-        </div>
-    </div>
     </div>
         
 <script>
-
- // HeatMap
- var heat = {{ .HeatMap }};
-
-function lowerData() {
-    var ldata = [];
-    let arrayLength = heat.length;
-    for (let i = 0 ; i < arrayLength; i++) {
-        let val = heat[i];
-        ldata.push({
-            x: val.X,
-            y: val.Y,
-            d: val.D,
-            v: val.V
-        });
-    }
-    return ldata;
-}
-
-var ctx = document.getElementById("matrix-chart").getContext("2d");
-window.myMatrix = new Chart(ctx, {
-    type: 'matrix',
-    data: {
-        datasets: [{
-            label: 'Heatmap',
-            data: lowerData(),
-            backgroundColor(context) {
-                const value = context.dataset.data[context.dataIndex].v;
-                const alpha = value / 7;
-                return Chart.helpers.color('green').alpha(alpha).rgbString();
-            },
-            borderColor(context) {
-                const value = context.dataset.data[context.dataIndex].v;
-                const alpha = 0.5;
-                return Chart.helpers.color('grey').alpha(alpha).rgbString();
-            },
-            borderWidth: 1,
-            hoverBackgroundColor: 'lightgrey',
-            hoverBorderColor: 'grey',
-            width() {
-                return 12;
-            },
-            height() {
-                return 12;
-            }
-        }]
-    },
-    options: {
-        onClick: (e) => {
-            const res = window.myMatrix.getElementsAtEventForMode(e, 'nearest', { intersect: true }, true);
-
-            console.log('res =', res[0].element.$context.raw.d);
-
-            // window.location.href = "/diary_show?from="+dayD+"&to="+dayD+"";
-        },
-        plugins: {
-            legend: false,
-            tooltip: {
-                callbacks: {
-                    title() {
-                        return '';
-                    },
-                    label(context) {
-                        const v = context.dataset.data[context.dataIndex];
-                        return [v.v, v.d];
-                    }
-                }
-            }
-        },
-        scales: {
-            x: {
-                type: 'category',
-                offset: true,
-                reverse: false,
-                ticks: {
-                    display: false
-                },
-                border: {
-                    display: false
-                },
-                grid: {
-                    display: false
-                }
-            },
-            y: {
-                type: 'category',
-                labels: ['Mo', 'Tu', 'We','Th','Fr','Sa','Su'],
-                reverse: false,
-                ticks: {
-                    stepSize: 1,
-                    display: true
-                },
-                border: {
-                    display: false
-                },
-                grid: {
-                    display: false
-                }
-            },
-        }
-    }
-});    
-
+   setStatsPage({{ .ExData.Sets }}, {{ .Config.HeatColor }});
 </script>
 
 {{ template "footer.html" }}
