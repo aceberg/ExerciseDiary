@@ -16,6 +16,7 @@ func Get(path string) models.Conf {
 	viper.SetDefault("THEME", "grass")
 	viper.SetDefault("COLOR", "light")
 	viper.SetDefault("HEATCOLOR", "#03a70c")
+	viper.SetDefault("PAGESTEP", 10)
 
 	viper.SetConfigFile(path)
 	viper.SetConfigType("yaml")
@@ -29,6 +30,7 @@ func Get(path string) models.Conf {
 	config.Theme, _ = viper.Get("THEME").(string)
 	config.Color, _ = viper.Get("COLOR").(string)
 	config.HeatColor, _ = viper.Get("HEATCOLOR").(string)
+	config.PageStep = viper.GetInt("PAGESTEP")
 
 	return config
 }
@@ -44,6 +46,7 @@ func Write(config models.Conf) {
 	viper.Set("theme", config.Theme)
 	viper.Set("color", config.Color)
 	viper.Set("heatcolor", config.HeatColor)
+	viper.Set("pagestep", config.PageStep)
 
 	err := viper.WriteConfig()
 	check.IfError(err)

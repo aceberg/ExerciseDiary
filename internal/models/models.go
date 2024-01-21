@@ -12,6 +12,7 @@ type Conf struct {
 	ConfPath  string
 	NodePath  string
 	HeatColor string
+	PageStep  int
 }
 
 // Exercise - one exercise

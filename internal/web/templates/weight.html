@@ -21,8 +21,8 @@
                     </tbody>
                 </table>
                 <div class="gap-3 hstack">
-                    <button onclick='setWeights({{ .ExData.Weight }}, {{ .Config.HeatColor }}, 1);' class="m-auto btn del-set-button"><i class="bi bi-arrow-left-square"></i></button>
-                    <button onclick='setWeights({{ .ExData.Weight }}, {{ .Config.HeatColor }}, -1);' class="m-auto btn del-set-button"><i class="bi bi-arrow-right-square"></i></button>
+                    <button onclick='setWeights({{ .ExData.Weight }}, {{ .Config.HeatColor }}, 1, {{ .Config.PageStep }});' class="m-auto btn del-set-button"><i class="bi bi-arrow-left-square"></i></button>
+                    <button onclick='setWeights({{ .ExData.Weight }}, {{ .Config.HeatColor }}, -1, {{ .Config.PageStep }});' class="m-auto btn del-set-button"><i class="bi bi-arrow-right-square"></i></button>
                 </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
         
 <script>
     setToday();
-    setWeights({{ .ExData.Weight }}, {{ .Config.HeatColor }}, 0);
+    setWeights({{ .ExData.Weight }}, {{ .Config.HeatColor }}, 0, {{ .Config.PageStep }});
 </script>
 
 {{ template "footer.html" }}

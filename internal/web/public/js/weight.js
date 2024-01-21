@@ -13,8 +13,8 @@ function addWeight(i, date, weight, id) {
     document.getElementById('weightList').insertAdjacentHTML('beforeend', html_code);
 };
 
-function setWeights(weights, wcolor, off) {
-    let start = 0, end = 0, step = 10;
+function setWeights(weights, wcolor, off, step) {
+    let start = 0, end = 0;
     let dates = [], ws = [];
 
     offset = offset + off;
