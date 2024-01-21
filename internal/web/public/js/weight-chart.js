@@ -14,9 +14,9 @@ function splitWeight(weight, show) {
     return { dates, ws };
 };
 
-function weightChart(dates, ws, wcolor, xticks) {
+function weightChart(id, dates, ws, wcolor, xticks) {
     
-    const ctx = document.getElementById('weight-chart');
+    const ctx = document.getElementById(id);
 
     if (wChart){
       wChart.clear();
@@ -57,6 +57,6 @@ function generateWeightChart(weight, wcolor, show) {
   if (weight) {
     let { dates, ws } = splitWeight(weight, show);
 
-    weightChart(dates, ws, wcolor, false);
+    weightChart('weight-chart', dates, ws, wcolor, false);
   };
 };

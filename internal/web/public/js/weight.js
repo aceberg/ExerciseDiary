@@ -46,5 +46,5 @@ function setWeights(weights, wcolor, off) {
         ws.push(weights[i].Weight);
         addWeight(i+1, weights[i].Date, weights[i].Weight, weights[i].ID)
     };
-    weightChart(dates, ws, wcolor, true);
+    weightChart('weight-chart', dates, ws, wcolor, true);
 };
