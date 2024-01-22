@@ -2,6 +2,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.1.5] - 2024-01-
+### Added
+- Horizontal scroll for heatmap on mobile
+- Heatmap and weight in two different cards
+
 ## [0.1.4] - 2024-01-22
 ### Added
 - Statistics page

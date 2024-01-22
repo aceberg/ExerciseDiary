@@ -29,3 +29,9 @@
 .del-set-button:hover {
     background-color: #0000001a;
 }
+
+@media (max-width: 1399px) {
+    .horiz-scroll {
+        overflow-x: scroll;
+    }
+}

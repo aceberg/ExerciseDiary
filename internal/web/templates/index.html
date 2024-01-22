@@ -40,26 +40,28 @@
 </div>
 <!-- End Modal -->
 <div class="container-lg">
-    <div class="row">
-      <div class="col-md">
-        <div class="card border-primary">
-          <div class="card-body">
-          <!-- <div class="hstack gap-2"> -->
-          <div class="row justify-content-evenly">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card border-primary">
+        <div class="card-body">
+          <div class="horiz-scroll">
+              <div style="max-height: 100px; width: 1150px;">
+                  <canvas id="matrix-chart" style="height: 100%; width: 100%;"></canvas>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card border-primary">
+        <div class="card-body" style="overflow-x: scroll;">
+          <div class="d-flex justify-content-evenly">
             <div class="col-md-8">
-              <!-- <div class="chart-container" style="max-width: fit-content;">
-                  <canvas id="matrix-chart" style="max-height: 100px; width: 760px;"></canvas>
-              </div> -->
-            <div id="matrix-container" class="chart-container" style="max-height: 100px; width: 1150px;overflow-x: scroll;">
-                <canvas id="matrix-chart" style="height: 100%; width: 100%;"></canvas>
-            </div>
-            </div>
-            <div class="col-md-3">
               <div class="chart-container" style="max-width: fit-content">
-                  <canvas id="weight-chart" style="max-height: 100px;"></canvas>
+                <canvas id="weight-chart" style="max-height: 100px;"></canvas>
               </div>
             </div>
-            <div class="col-md">
+            <div class="col-md-2">
               <button class="btn del-set-button" title="Add weight" data-bs-toggle="modal" data-bs-target="#mWeight" onclick='setWeightDate()'>
                 <h4><i class="bi bi-window-plus"></i></h4>
               </button>
@@ -67,8 +69,8 @@
           </div>
         </div>
       </div>
-      </div>
     </div>
+  </div>
     <br>
     <div class="row">
         <div class="col-md">
