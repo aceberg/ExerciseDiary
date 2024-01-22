@@ -7,10 +7,10 @@
 - [x] BodyWeight Chart
 - [x] Weight page
 - [x] Version on Config page
+- [x] Statistics page
 
 ## IN PROGRESS
 - [ ] Mobile layout
-- [ ] Statistics page
 
 ## TODO
 - [ ] Login/Password

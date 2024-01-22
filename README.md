@@ -43,6 +43,7 @@ Configuration can be done through config file or environment variables
 | THEME | Any theme name from https://bootswatch.com in lowcase or [additional](https://github.com/aceberg/aceberg-bootswatch-fork) (emerald, grass, sand)| grass |
 | COLOR | Background color: light or dark | light |
 | HEATCOLOR | HeatMap color | #03a70c |
+| PAGESTEP | Items on one page | 10 |
 | TZ | Set your timezone for correct time | "" |
 
 ## Options
