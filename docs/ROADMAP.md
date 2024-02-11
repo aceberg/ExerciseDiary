@@ -8,12 +8,12 @@
 - [x] Weight page
 - [x] Version on Config page
 - [x] Statistics page
+- [x] Mobile layout
 
 ## IN PROGRESS
-- [ ] Mobile layout
+- [ ] Login/Password
 
 ## TODO
-- [ ] Login/Password
 - [ ] PostgreSQL DB option
 
 ## MAYBE
