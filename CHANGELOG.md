@@ -2,6 +2,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.1.6] - 2024-02-
+### Fixed
+- Bug deleting form element on pressing `Enter`
+
 ## [0.1.5] - 2024-02-11
 ### Added
 - Horizontal scroll for heatmap on mobile

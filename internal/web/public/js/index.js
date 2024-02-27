@@ -5,7 +5,18 @@ function addExercise(name, weight, reps) {
     // console.log('NAME =', name);
 
     id = id + 1;
-    html_to_insert='<tr id="'+id+'"><td><input name="name" type="text" class="form-control" value="'+name+'"></td><td><input name="weight" type="number" class="form-control" value="'+weight+'"></td><td><input name="reps" type="number" class="form-control" value="'+reps+'"></td><td><button class="btn del-set-button" title="Delete" onclick="delExercise('+id+')"><i class="bi bi-x-square"></i></button></td></tr>';
+    html_to_insert=`<tr id="${id}">
+    <td>
+        <input name="name" type="text" class="form-control" value="${name}">
+    </td><td>
+        <input name="weight" type="number" class="form-control" value="${weight}">
+    </td><td>
+        <input name="reps" type="number" class="form-control" value="${reps}">
+    </td><td>
+        <button class="btn del-set-button" type="button" title="Delete" onclick="delExercise(${id})">
+            <i class="bi bi-x-square"></i>
+        </button>
+    </td></tr>`;
 
     document.getElementById('todayEx').insertAdjacentHTML('beforeend', html_to_insert);
 };
