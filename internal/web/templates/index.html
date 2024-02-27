@@ -133,13 +133,22 @@
         </div>
         <div class="col-md">
             <div class="card border-primary">
-                <!-- <div class="card-header">Today</div> -->
-                <div class="card-body">
-                  <div class="gap-3 hstack">
-                    <button onclick='moveDayLeftRight(-1, {{ .ExData.Sets }})' class="btn del-set-button"><i class="bi bi-arrow-left-square"></i></button>
-                    <input type="date" class="m-auto form-control" onchange='setFormDate({{ .ExData.Sets }})' id="realDate" style="width: 40%;">
-                    <button onclick='moveDayLeftRight(+1, {{ .ExData.Sets }})' class="btn del-set-button"><i class="bi bi-arrow-right-square"></i></button>
+                <div class="card-header">
+                  <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md hstack">
+                      <button onclick='moveDayLeftRight(-1, {{ .ExData.Sets }})' class="btn del-set-button">
+                        <i class="bi bi-arrow-left-square"></i>
+                      </button>
+                      <input type="date" class="m-auto form-control" onchange='setFormDate({{ .ExData.Sets }})' id="realDate" style="width: 70%;">
+                      <button onclick='moveDayLeftRight(+1, {{ .ExData.Sets }})' class="btn del-set-button">
+                        <i class="bi bi-arrow-right-square"></i>
+                      </button>
+                    </div>
+                    <div class="col-md-2"></div>
                   </div>
+                </div>
+                <div class="card-body">
                 <form action="/set/" method="post" name="sets">
                   <input name="date" type="hidden" id="formDate">
                   <div class="table-responsive">

@@ -33,7 +33,7 @@ type Set struct {
 	ID     int    `db:"ID"`
 	Date   string `db:"DATE"`
 	Name   string `db:"NAME"`
-	Color  string `db:"COLOR"` // Used for Sets
+	Color  string `db:"COLOR"`
 	Weight int    `db:"WEIGHT"`
 	Reps   int    `db:"REPS"`
 }

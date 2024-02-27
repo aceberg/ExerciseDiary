@@ -3,6 +3,9 @@
 All notable changes to this project will be documented in this file.
 
 ## [0.1.6] - 2024-02-
+### Changed
+- Navbar update
+
 ### Fixed
 - Bug deleting form element on pressing `Enter`
 
