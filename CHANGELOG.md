@@ -2,9 +2,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## [0.1.6] - 2024-02-
+## [0.1.6] - 2024-02-28
 ### Changed
 - Navbar update
+- HeatMap scroll starts at right side
 
 ### Fixed
 - Bug deleting form element on pressing `Enter`

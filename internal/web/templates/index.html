@@ -5,7 +5,6 @@
 <script src="/fs/public/js/weight-chart.js"></script>
 <link rel="stylesheet" type="text/css" href="/fs/public/css/index.css" />
 <body>
-<br>
 <!-- Add Weight Modal -->
 <div class="modal" id="mWeight">
   <div class="modal-dialog" role="document">
@@ -39,20 +38,20 @@
   </div>
 </div>
 <!-- End Modal -->
-<div class="container-lg">
+<div class="container-lg mt-4">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-8 mb-4">
       <div class="card border-primary">
         <div class="card-body">
           <div class="horiz-scroll">
-              <div style="max-height: 100px; width: 1150px;">
+              <div style="height: 100px; width: 770px;">
                   <canvas id="matrix-chart" style="height: 100%; width: 100%;"></canvas>
               </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 mb-4">
       <div class="card border-primary">
         <div class="card-body" style="overflow-x: scroll;">
           <div class="d-flex justify-content-evenly">
@@ -71,9 +70,8 @@
       </div>
     </div>
   </div>
-    <br>
     <div class="row">
-        <div class="col-md">
+        <div class="col-md mb-4">
             <div class="accordion">
                 {{ range $gr, $grID := .GroupMap }}
                 <div class="accordion-item border-primary">
@@ -131,7 +129,7 @@
                 {{ end }}              
               </div>
         </div>
-        <div class="col-md">
+        <div class="col-md mb-4">
             <div class="card border-primary">
                 <div class="card-header">
                   <div class="row">

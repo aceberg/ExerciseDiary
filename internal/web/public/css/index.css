@@ -32,6 +32,7 @@
 
 @media (max-width: 1399px) {
     .horiz-scroll {
+        direction: rtl;
         overflow-x: scroll;
     }
 }

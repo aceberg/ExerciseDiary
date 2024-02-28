@@ -1,10 +1,9 @@
 {{ define "config.html" }}
 
 <body>
-    <div class="container-lg">
-        <br>
+    <div class="container-lg mt-4">
     <div class="row">
-        <div class="col-md">
+        <div class="col-md mb-4">
         <div class="card border-primary">
             <div class="card-header">Config</div>
         <div class="card-body table-responsive">
@@ -55,14 +54,13 @@
         </div>
         </div>
         <div class="col-md">
-            <div class="card border-primary">
+            <div class="card border-primary mb-4">
                 <div class="card-header">Version</div>
                 <div class="card-body">
                     <a href="https://github.com/aceberg/ExerciseDiary/releases/tag/{{ .Version }}" target="_blank">{{ .Version }}</a>
                 </div>
             </div>
-            <br>
-            <div class="card border-primary">
+            <div class="card border-primary mb-4">
                 <div class="card-header">About</div>
             <div class="card-body">
                 <p>● After changing <b>Host</b> or <b>Port</b> the app must be restarted</p>
