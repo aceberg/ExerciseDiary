@@ -2,6 +2,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.1.7] - 2024-03-03
+### Added
+- Button to add all exercises in a Group to selected day
+- Binary files for Linux, Mac, Windows
+
 ## [0.1.6] - 2024-02-28
 ### Changed
 - Navbar update
