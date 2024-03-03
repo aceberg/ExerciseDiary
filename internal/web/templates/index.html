@@ -82,6 +82,8 @@
                     </h2>
                     <div id="{{ $grID }}" class="accordion-collapse collapse">
                       <div class="accordion-body">
+                        <div class="row">
+                        <div class="col-md-11">
                         {{ range $.ExData.Exs }}
                         {{ if eq .Group $gr }}
                         <div class="hstack gap-2">
@@ -123,6 +125,13 @@
                         </div>
                         {{ end }}
                         {{ end }}
+                        </div>
+                        <div class="col-md-1">
+                          <button class="btn del-set-button" title="Add group" onclick='addAllGroup({{ $.ExData.Exs }}, {{ $gr }})'>
+                            <i class="bi bi-chevron-compact-right"></i>
+                          </button>
+                        </div>
+                        </div>
                       </div>
                     </div>
                   </div>

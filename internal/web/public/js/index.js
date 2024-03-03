@@ -75,3 +75,18 @@ function moveDayLeftRight(where, sets) {
 
     setFormContent(sets, left);
 };
+
+function addAllGroup(exs, gr) {
+
+    console.log('GR =', gr);
+    console.log('SETS =', exs);
+
+    if (exs) {
+        let len = exs.length;
+        for (let i = 0 ; i < len; i++) {
+            if (exs[i].Group == gr) {
+                addExercise(exs[i].Name, exs[i].Weight, exs[i].Reps);
+            }
+        }
+    }
+}
