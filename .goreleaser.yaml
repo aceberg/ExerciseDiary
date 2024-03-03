@@ -1,0 +1,66 @@
+project_name: ExerciseDiary
+builds:
+  - main: ./cmd/ExerciseDiary/
+    binary: exercisediary
+    id: default
+    env: [CGO_ENABLED=0]
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - 386
+      - amd64
+      - arm
+      - arm64
+    goarm:
+      - "5"
+      - "6"
+      - "7"
+    ignore:
+      - goos: darwin
+        goarch: 386
+      - goos: darwin
+        goarch: arm
+      - goos: windows
+        goarch: 386
+      - goos: windows
+        goarch: arm
+
+nfpms:
+  - maintainer: aceberg <aceberg_a@proton.me>
+    description: Workout diary with GitHub-style year visualization  
+    homepage: https://github.com/aceberg/ExerciseDiary
+    license: MIT
+    section: utils
+    formats:
+    - deb
+    - rpm
+    - apk
+    - termux.deb
+    contents:
+    - src: ./configs/ExerciseDiary.service
+      dst: /lib/systemd/system/ExerciseDiary.service
+    - src: ./configs/ExerciseDiary@.service
+      dst: /lib/systemd/system/ExerciseDiary@.service
+    scripts:
+      postinstall: ./configs/postinstall.sh
+
+archives:
+  - files:
+    - LICENSE
+    - README.md
+    - CHANGELOG.md
+    - src: ./configs/ExerciseDiary.service
+      dst: ExerciseDiary.service
+    - src: ./configs/ExerciseDiary@.service
+      dst: ExerciseDiary@.service
+    - src: ./configs/install.sh
+      dst: install.sh
+    wrap_in_directory: true
+    format_overrides:
+    - goos: windows
+      format: zip
+
+checksum:
+  name_template: "checksums.txt"

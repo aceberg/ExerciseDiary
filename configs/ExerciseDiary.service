@@ -1,0 +1,12 @@
+[Unit]
+Description=ExerciseDiary
+Documentation=https://github.com/aceberg/ExerciseDiary
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/bin/exercisediary -d /etc/ExerciseDiary/
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
