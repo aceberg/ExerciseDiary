@@ -10,6 +10,7 @@
 Workout diary with GitHub-style year visualization
 
 - [Quick start](https://github.com/aceberg/exercisediary#quick-start)
+- [Binary](https://github.com/aceberg/exercisediary#binary)
 - [Config](https://github.com/aceberg/exercisediary#config)
 - [Options](https://github.com/aceberg/exercisediary#options)
 - [Local network only](https://github.com/aceberg/exercisediary#local-network-only)
@@ -29,6 +30,9 @@ docker run --name exdiary \
 aceberg/exercisediary
 ```
 Or use [docker-compose.yml](docker-compose.yml)
+
+## Binary
+PPA for amd64 .deb is [here](https://github.com/aceberg/ppa). For other binary options plese look at the [latest release](https://github.com/aceberg/ExerciseDiary/releases/latest).
 
 
 ## Config

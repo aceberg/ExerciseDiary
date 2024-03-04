@@ -9,6 +9,7 @@
 - [x] Version on Config page
 - [x] Statistics page
 - [x] Mobile layout
+- [x] Add exercise group with 1 button
 
 ## IN PROGRESS
 - [ ] Login/Password
@@ -18,7 +19,6 @@
 
 ## MAYBE
 
-- [ ] Add exercise group with 1 button
 - [ ] Weight field take decimals [#4](https://github.com/aceberg/ExerciseDiary/issues/4)
 - [ ] Multiple users
 
