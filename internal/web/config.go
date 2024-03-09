@@ -39,7 +39,7 @@ func saveConfigHandler(c *gin.Context) {
 
 	appConfig.PageStep, _ = strconv.Atoi(pagestep)
 
-	conf.Write(appConfig)
+	conf.Write(appConfig, authConf)
 
 	log.Println("INFO: writing new config to", appConfig.ConfPath)
 

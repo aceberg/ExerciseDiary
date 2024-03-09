@@ -7,6 +7,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
+	"github.com/aceberg/ExerciseDiary/internal/auth"
 	"github.com/aceberg/ExerciseDiary/internal/check"
 	"github.com/aceberg/ExerciseDiary/internal/conf"
 	"github.com/aceberg/ExerciseDiary/internal/db"
@@ -18,7 +19,7 @@ func Gui(dirPath, nodePath string) {
 	confPath := dirPath + "/config.yaml"
 	check.Path(confPath)
 
-	appConfig = conf.Get(confPath)
+	appConfig, authConf = conf.Get(confPath)
 
 	appConfig.DirPath = dirPath
 	appConfig.DBPath = dirPath + "/sqlite.db"
@@ -45,11 +46,14 @@ func Gui(dirPath, nodePath string) {
 
 	router.StaticFS("/fs/", http.FS(pubFS)) // public
 
-	router.GET("/", indexHandler)             // index.go
-	router.GET("/config/", configHandler)     // config.go
-	router.GET("/exercise/", exerciseHandler) // exercise.go
-	router.GET("/stats/", statsHandler)       // stats.go
-	router.GET("/weight/", weightHandler)     // weight.go
+	router.GET("/login/", loginHandler)  // login.go
+	router.POST("/login/", loginHandler) // login.go
+
+	router.GET("/", indexHandler)                               // index.go
+	router.GET("/config/", configHandler)                       // config.go
+	router.GET("/exercise/", exerciseHandler)                   // exercise.go
+	router.GET("/stats/", statsHandler)                         // stats.go
+	router.GET("/weight/", auth.Auth(&authConf), weightHandler) // weight.go
 
 	router.POST("/config/", saveConfigHandler)     // config.go
 	router.POST("/exercise/", saveExerciseHandler) // exercise.go

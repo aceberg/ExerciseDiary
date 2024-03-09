@@ -3,12 +3,16 @@ package web
 import (
 	"embed"
 
+	"github.com/aceberg/ExerciseDiary/internal/auth"
 	"github.com/aceberg/ExerciseDiary/internal/models"
 )
 
 var (
 	// appConfig - config for Web Gui
 	appConfig models.Conf
+
+	// authConf - config for auth
+	authConf auth.Conf
 
 	// Exercise data
 	exData models.AllExData

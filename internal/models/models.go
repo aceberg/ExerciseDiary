@@ -1,5 +1,9 @@
 package models
 
+import (
+	"github.com/aceberg/ExerciseDiary/internal/auth"
+)
+
 // Conf - web gui config
 type Conf struct {
 	Host      string
@@ -13,6 +17,7 @@ type Conf struct {
 	NodePath  string
 	HeatColor string
 	PageStep  int
+	Auth      bool
 }
 
 // Exercise - one exercise
@@ -69,4 +74,5 @@ type GuiData struct {
 	OneEx    Exercise
 	HeatMap  []HeatMapData
 	Version  string
+	Auth     auth.Conf
 }
