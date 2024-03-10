@@ -13,19 +13,7 @@
 .tip-button[mytitle] {
     position: relative;
 }
-.tip-button[mytitle]:focus::after {
-    content: attr(mytitle);
-    position: absolute;
-    top: 90%;
-    color: var(--bs-body-color);
-    background-color: var(--bs-body-bg);
-    border: 1px solid var(--bs-primary);
-    width: max-content;
-    max-width: 18em;
-    padding: 5px;
-    border-radius: var(--bs-border-radius);
-}
-.tip-button[mytitle]:hover::after {
+.tip-button[mytitle]:focus::after, .tip-button[mytitle]:hover::after {
     content: attr(mytitle);
     position: absolute;
     top: 90%;
