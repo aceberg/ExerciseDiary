@@ -15,9 +15,9 @@ func loginHandler(c *gin.Context) {
 
 	username := c.PostForm("username")
 	password := c.PostForm("password")
-	logout := c.PostForm("logout")
+	logout, ok := c.GetQuery("logout")
 
-	if logout == "yes" {
+	if ok && logout == "yes" {
 
 		log.Println("INFO: user logged out")
 		auth.LogOut(c)

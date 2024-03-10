@@ -49,17 +49,18 @@ func Gui(dirPath, nodePath string) {
 	router.GET("/login/", loginHandler)  // login.go
 	router.POST("/login/", loginHandler) // login.go
 
-	router.GET("/", indexHandler)                               // index.go
-	router.GET("/config/", configHandler)                       // config.go
-	router.GET("/exercise/", exerciseHandler)                   // exercise.go
-	router.GET("/stats/", statsHandler)                         // stats.go
-	router.GET("/weight/", auth.Auth(&authConf), weightHandler) // weight.go
+	router.GET("/", auth.Auth(&authConf), indexHandler)             // index.go
+	router.GET("/config/", auth.Auth(&authConf), configHandler)     // config.go
+	router.GET("/exercise/", auth.Auth(&authConf), exerciseHandler) // exercise.go
+	router.GET("/stats/", auth.Auth(&authConf), statsHandler)       // stats.go
+	router.GET("/weight/", auth.Auth(&authConf), weightHandler)     // weight.go
 
-	router.POST("/config/", saveConfigHandler)     // config.go
-	router.POST("/exercise/", saveExerciseHandler) // exercise.go
-	router.POST("/exdel/", deleteExerciseHandler)  // exercise.go
-	router.POST("/set/", setHandler)               // set.go
-	router.POST("/weight/", addWeightHandler)      // weight.go
+	router.POST("/config/", auth.Auth(&authConf), saveConfigHandler)     // config.go
+	router.POST("/config/auth", auth.Auth(&authConf), saveConfigAuth)    // config.go
+	router.POST("/exercise/", auth.Auth(&authConf), saveExerciseHandler) // exercise.go
+	router.POST("/exdel/", auth.Auth(&authConf), deleteExerciseHandler)  // exercise.go
+	router.POST("/set/", auth.Auth(&authConf), setHandler)               // set.go
+	router.POST("/weight/", auth.Auth(&authConf), addWeightHandler)      // weight.go
 
 	err := router.Run(address)
 	check.IfError(err)

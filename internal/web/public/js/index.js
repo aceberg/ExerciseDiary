@@ -78,8 +78,8 @@ function moveDayLeftRight(where, sets) {
 
 function addAllGroup(exs, gr) {
 
-    console.log('GR =', gr);
-    console.log('SETS =', exs);
+    // console.log('GR =', gr);
+    // console.log('SETS =', exs);
 
     if (exs) {
         let len = exs.length;

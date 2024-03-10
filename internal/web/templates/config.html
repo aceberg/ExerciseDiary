@@ -1,5 +1,6 @@
 {{ define "config.html" }}
 
+<link rel="stylesheet" type="text/css" href="/fs/public/css/config.css" />
 <body>
     <div class="container-lg mt-4">
     <div class="row">
@@ -10,11 +11,15 @@
         <table class="table table-borderless">
             <form action="/config/" method="post">
                 <tr>
-                    <td>Host</td>
+                    <td>Host<button type="button" class="btn tip-button" mytitle="Restart the app if changed">
+                        <i class="bi bi-question-circle"></i>
+                    </button></td>
                     <td><input name="host" type="text" class="form-control" value="{{ .Config.Host }}"></td>
                 </tr>
                 <tr>
-                    <td>Port</td>
+                    <td>Port<button type="button" class="btn tip-button" mytitle="Restart the app if changed">
+                        <i class="bi bi-question-circle"></i>
+                    </button></td>
                     <td><input name="port" type="text" class="form-control" value="{{ .Config.Port }}"></td>
                 </tr>
                 <tr>
@@ -41,7 +46,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Page Step</td>
+                    <td>Page Step<button type="button" class="btn tip-button" mytitle="How many items to show on one page (for Weight and Stats)">
+                        <i class="bi bi-question-circle"></i>
+                    </button></td>
                     <td><input name="pagestep" type="number" class="form-control" value="{{ .Config.PageStep }}"></td>
                 </tr>
                 <tr>
@@ -55,18 +62,55 @@
         </div>
         <div class="col-md">
             <div class="card border-primary mb-4">
-                <div class="card-header">Version</div>
-                <div class="card-body">
-                    <a href="https://github.com/aceberg/ExerciseDiary/releases/tag/{{ .Version }}" target="_blank">{{ .Version }}</a>
+                <div class="card-header">Auth</div>
+                <div class="card-body table-responsive">
+                    <table class="table table-borderless">
+                        <form action="/config/auth" method="post">
+                            <tr>
+                                <td>Enable<button type="button" class="btn tip-button" mytitle="Authentication is only safe when used over HTTPS and with a strong password">
+                                    <i class="bi bi-question-circle"></i>
+                                </button></td>
+                                <td>
+                                    <div class="form-check form-switch">
+                                        {{ if .Auth.Auth }}
+                                        <input class="form-check-input" type="checkbox" name="auth" checked>
+                                        {{ else }}
+                                        <input class="form-check-input" type="checkbox" name="auth">
+                                        {{ end }}
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Expire after<button type="button" class="btn tip-button" mytitle="When user session expires. Can be set with suffixes m(minute), h(hour), d(day) or M(month). Default: 7d">
+                                    <i class="bi bi-question-circle"></i>
+                                </button></td>
+                                <td><input name="expire" type="text" class="form-control" value="{{ .Auth.ExpStr }}"></td>
+                            </tr>
+                            <tr>
+                                <td>Login<button type="button" class="btn tip-button" mytitle="Must not be empty">
+                                    <i class="bi bi-question-circle"></i>
+                                </button></td>
+                                <td><input name="user" type="text" class="form-control" value="{{ .Auth.User }}"></td>
+                            </tr>
+                            <tr>
+                                <td>New password<button type="button" class="btn tip-button" mytitle="Stored encrypted in config file">
+                                    <i class="bi bi-question-circle"></i>
+                                </button></td>
+                                <td><input name="password" type="password" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td><button type="submit" class="btn btn-primary">Save</button></td>
+                                <td></td>
+                            </tr>
+                        </form>
+                    </table>
                 </div>
             </div>
             <div class="card border-primary mb-4">
-                <div class="card-header">About</div>
+                <div class="card-header">About (<a href="https://github.com/aceberg/ExerciseDiary/releases/tag/{{ .Version }}" target="_blank">{{ .Version }}</a>)</div>
             <div class="card-body">
-                <p>● After changing <b>Host</b> or <b>Port</b> the app must be restarted</p>
-                <p>● <b>Page Step</b> - how many items to show on one page (for <a href="/stats/">Stats</a> and <a href="/weight/">Weight</a>)</p>
-                <p>● Please, check out my other apps on <a href="https://github.com/aceberg" target="_blank">GitHub</a></p>
-                <p>● Want your own Self-Hosted app written in Go? Contact and prices <a href="https://github.com/aceberg" target="_blank">here</a></p>
+                <p>If you like this app, please, <a href="https://github.com/aceberg#donate" target="_blank">donate</a></p>
+                <p>Order you own app (Golang, HTML/JS). Contact and prices <a href="https://github.com/aceberg" target="_blank">here</a></p>
             </div>
         </div>
     </div>

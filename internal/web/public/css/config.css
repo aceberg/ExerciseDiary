@@ -1,0 +1,39 @@
+.tip-button {
+    /* width: 14%; */
+    height: 100%;
+    background-color: #00000000;
+    color: var(--bs-primary);
+    text-align: center;
+}
+.tip-button:hover {
+    background-color: #0000001a;
+}
+
+/* @media (pointer: coarse), (hover: none) { */
+.tip-button[mytitle] {
+    position: relative;
+}
+.tip-button[mytitle]:focus::after {
+    content: attr(mytitle);
+    position: absolute;
+    top: 90%;
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    border: 1px solid var(--bs-primary);
+    width: max-content;
+    max-width: 18em;
+    padding: 5px;
+    border-radius: var(--bs-border-radius);
+}
+.tip-button[mytitle]:hover::after {
+    content: attr(mytitle);
+    position: absolute;
+    top: 90%;
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    border: 1px solid var(--bs-primary);
+    width: max-content;
+    max-width: 18em;
+    padding: 5px;
+    border-radius: var(--bs-border-radius);
+}

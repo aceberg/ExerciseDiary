@@ -10,9 +10,9 @@
 - [x] Statistics page
 - [x] Mobile layout
 - [x] Add exercise group with 1 button
+- [x] Login/Password
 
 ## IN PROGRESS
-- [ ] Login/Password
 
 ## TODO
 - [ ] PostgreSQL DB option
@@ -20,7 +20,6 @@
 ## MAYBE
 
 - [ ] Weight field take decimals [#4](https://github.com/aceberg/ExerciseDiary/issues/4)
-- [ ] Multiple users
 
 ## NOT DOING
 

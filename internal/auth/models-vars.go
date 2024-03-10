@@ -15,4 +15,4 @@ type Conf struct {
 
 var allSessions = map[string]time.Time{}
 
-var cookieName = "exdiary_session_token"
+var cookieName = "exersisediary_session_token"

@@ -50,9 +50,11 @@
               <li class="nav-item">
                 <a class="nav-link active" href="/config/">Config</a>
               </li>
+              {{ if .Config.Auth }}
               <li class="nav-item">
-                <a class="nav-link active" href="/login/">Login</a>
+                <a class="nav-link active" href="/login/?logout=yes">LogOut</a>
               </li>
+              {{ end }}
             </ul>
           </div>
         </div>
