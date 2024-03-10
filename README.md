@@ -42,6 +42,10 @@ Configuration can be done through config file or environment variables
 
 | Variable  | Description | Default |
 | --------  | ----------- | ------- |
+| AUTH | Enable Session-Cookie authentication | false |
+| AUTH_EXPIRE | Session expiration time. A number and suffix: **m, h, d** or **M**. | 7d |
+| AUTH_USER | Username | "" |
+| AUTH_PASSWORD | Encrypted password (bcrypt). [How to encrypt password with bcrypt?](docs/BCRYPT.md) | "" |
 | HOST | Listen address | 0.0.0.0 |
 | PORT   | Port for web GUI | 8851 |
 | THEME | Any theme name from https://bootswatch.com in lowcase or [additional](https://github.com/aceberg/aceberg-bootswatch-fork) (emerald, grass, sand)| grass |
