@@ -34,25 +34,22 @@ Or use [docker-compose.yml](docker-compose.yml)
 ## Binary
 PPA for amd64 .deb is [here](https://github.com/aceberg/ppa). For other binary options plese look at the [latest release](https://github.com/aceberg/ExerciseDiary/releases/latest).
 
-
 ## Config
-
-
 Configuration can be done through config file or environment variables
 
-| Variable  | Description | Default |
-| --------  | ----------- | ------- |
-| AUTH | Enable Session-Cookie authentication | false |
-| AUTH_EXPIRE | Session expiration time. A number and suffix: **m, h, d** or **M**. | 7d |
-| AUTH_USER | Username | "" |
-| AUTH_PASSWORD | Encrypted password (bcrypt). [How to encrypt password with bcrypt?](docs/BCRYPT.md) | "" |
-| HOST | Listen address | 0.0.0.0 |
-| PORT   | Port for web GUI | 8851 |
-| THEME | Any theme name from https://bootswatch.com in lowcase or [additional](https://github.com/aceberg/aceberg-bootswatch-fork) (emerald, grass, sand)| grass |
-| COLOR | Background color: light or dark | light |
-| HEATCOLOR | HeatMap color | #03a70c |
-| PAGESTEP | Items on one page | 10 |
-| TZ | Set your timezone for correct time | "" |
+| Variable  | Config File | Description | Default |
+| --------  | ----------- | ----------- | ------- |
+| AUTH | auth | Enable Session-Cookie authentication | false |
+| AUTH_EXPIRE | auth_expire | Session expiration time. A number and suffix: **m, h, d** or **M**. | 7d |
+| AUTH_USER | auth_user | Username | "" |
+| AUTH_PASSWORD | auth_password | Encrypted password (bcrypt). [How to encrypt password with bcrypt?](docs/BCRYPT.md) | "" |
+| HOST | host | Listen address | 0.0.0.0 |
+| PORT   | port | Port for web GUI | 8851 |
+| THEME | theme | Any theme name from https://bootswatch.com in lowercase or [additional](https://github.com/aceberg/aceberg-bootswatch-fork) (emerald, grass, sand)| grass |
+| COLOR | color | Background color: light or dark | light |
+| HEATCOLOR | heatcolor | HeatMap color | #03a70c |
+| PAGESTEP | pagestep | Items on one page | 10 |
+| TZ | | Set your timezone for correct time | "" |
 
 ## Options
 
