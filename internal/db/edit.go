@@ -44,7 +44,7 @@ func Create(path string) {
 func InsertEx(path string, ex models.Exercise) {
 
 	sqlStatement := `INSERT INTO exercises (GR, PLACE, NAME, DESCR, IMAGE, COLOR, WEIGHT, REPS) 
-	VALUES ('%s','%s','%s','%s','%s','%s','%d','%d');`
+	VALUES ('%s','%s','%s','%s','%s','%s','%v','%d');`
 
 	ex.Group = quoteStr(ex.Group)
 	ex.Name = quoteStr(ex.Name)
@@ -59,7 +59,7 @@ func InsertEx(path string, ex models.Exercise) {
 func InsertSet(path string, ex models.Set) {
 
 	sqlStatement := `INSERT INTO sets (DATE, NAME, COLOR, WEIGHT, REPS) 
-	VALUES ('%s','%s','%s','%d','%d');`
+	VALUES ('%s','%s','%s','%v','%d');`
 
 	ex.Name = quoteStr(ex.Name)
 
@@ -72,7 +72,7 @@ func InsertSet(path string, ex models.Set) {
 func InsertW(path string, ex models.BodyWeight) {
 
 	sqlStatement := `INSERT INTO weight (DATE, WEIGHT) 
-	VALUES ('%s','%d');`
+	VALUES ('%s','%v');`
 
 	sqlStatement = fmt.Sprintf(sqlStatement, ex.Date, ex.Weight)
 

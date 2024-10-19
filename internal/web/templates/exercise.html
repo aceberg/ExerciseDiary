@@ -32,11 +32,11 @@
                 </tr>
                 <tr>
                     <td>Weight (default)</td>
-                    <td><input name="weight" type="number" class="form-control" value="{{ .OneEx.Weight }}"></td>
+                    <td><input name="weight" type="number" step="any" min="0" class="form-control" value="{{ .OneEx.Weight }}"></td>
                 </tr>
                 <tr>
                     <td>Reps (default)</td>
-                    <td><input name="reps" type="number" class="form-control" value="{{ .OneEx.Reps }}"></td>
+                    <td><input name="reps" type="number" min="0" class="form-control" value="{{ .OneEx.Reps }}"></td>
                 </tr>
                 <tr>
                     <td><button type="submit" class="btn btn-primary">Save</button></td>

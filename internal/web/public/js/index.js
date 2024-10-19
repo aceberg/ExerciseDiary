@@ -9,9 +9,9 @@ function addExercise(name, weight, reps) {
     <td>
         <input name="name" type="text" class="form-control" value="${name}">
     </td><td>
-        <input name="weight" type="number" class="form-control" value="${weight}">
+        <input name="weight" type="number" step="any" min="0" class="form-control" value="${weight}">
     </td><td>
-        <input name="reps" type="number" class="form-control" value="${reps}">
+        <input name="reps" type="number" min="0" class="form-control" value="${reps}">
     </td><td>
         <button class="btn del-set-button" type="button" title="Delete" onclick="delExercise(${id})">
             <i class="bi bi-x-square"></i>

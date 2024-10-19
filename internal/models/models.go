@@ -1,6 +1,8 @@
 package models
 
 import (
+	"github.com/shopspring/decimal"
+
 	"github.com/aceberg/ExerciseDiary/internal/auth"
 )
 
@@ -22,25 +24,25 @@ type Conf struct {
 
 // Exercise - one exercise
 type Exercise struct {
-	ID     int    `db:"ID"`
-	Group  string `db:"GR"`
-	Place  string `db:"PLACE"`
-	Name   string `db:"NAME"`
-	Descr  string `db:"DESCR"`
-	Image  string `db:"IMAGE"`
-	Color  string `db:"COLOR"`
-	Weight int    `db:"WEIGHT"`
-	Reps   int    `db:"REPS"`
+	ID     int             `db:"ID"`
+	Group  string          `db:"GR"`
+	Place  string          `db:"PLACE"`
+	Name   string          `db:"NAME"`
+	Descr  string          `db:"DESCR"`
+	Image  string          `db:"IMAGE"`
+	Color  string          `db:"COLOR"`
+	Weight decimal.Decimal `db:"WEIGHT"`
+	Reps   int             `db:"REPS"`
 }
 
 // Set - one set
 type Set struct {
-	ID     int    `db:"ID"`
-	Date   string `db:"DATE"`
-	Name   string `db:"NAME"`
-	Color  string `db:"COLOR"`
-	Weight int    `db:"WEIGHT"`
-	Reps   int    `db:"REPS"`
+	ID     int             `db:"ID"`
+	Date   string          `db:"DATE"`
+	Name   string          `db:"NAME"`
+	Color  string          `db:"COLOR"`
+	Weight decimal.Decimal `db:"WEIGHT"`
+	Reps   int             `db:"REPS"`
 }
 
 // AllExData - all sets and exercises
@@ -60,9 +62,9 @@ type HeatMapData struct {
 
 // BodyWeight - store weight
 type BodyWeight struct {
-	ID     int    `db:"ID"`
-	Date   string `db:"DATE"`
-	Weight int    `db:"WEIGHT"`
+	ID     int             `db:"ID"`
+	Date   string          `db:"DATE"`
+	Weight decimal.Decimal `db:"WEIGHT"`
 }
 
 // GuiData - web gui data
