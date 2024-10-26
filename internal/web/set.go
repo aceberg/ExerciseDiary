@@ -6,6 +6,7 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
+	"github.com/shopspring/decimal"
 
 	"github.com/aceberg/ExerciseDiary/internal/db"
 	"github.com/aceberg/ExerciseDiary/internal/models"
@@ -15,7 +16,8 @@ func setHandler(c *gin.Context) {
 
 	var formData []models.Set
 	var oneSet models.Set
-	var weight, reps int
+	var reps int
+	var weight decimal.Decimal
 
 	_ = c.PostFormMap("sets")
 
@@ -29,7 +31,7 @@ func setHandler(c *gin.Context) {
 	for i := 0; i < len; i++ {
 		oneSet.Date = date
 		oneSet.Name = formMap["name"][i]
-		weight, _ = strconv.Atoi(formMap["weight"][i])
+		weight, _ = decimal.NewFromString(formMap["weight"][i])
 		reps, _ = strconv.Atoi(formMap["reps"][i])
 		oneSet.Weight = weight
 		oneSet.Reps = reps

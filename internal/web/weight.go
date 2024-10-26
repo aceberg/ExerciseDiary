@@ -7,6 +7,7 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
+	"github.com/shopspring/decimal"
 
 	"github.com/aceberg/ExerciseDiary/internal/db"
 	"github.com/aceberg/ExerciseDiary/internal/models"
@@ -18,7 +19,7 @@ func addWeightHandler(c *gin.Context) {
 	w.Date = c.PostForm("date")
 	weightStr := c.PostForm("weight")
 
-	w.Weight, _ = strconv.Atoi(weightStr)
+	w.Weight, _ = decimal.NewFromString(weightStr)
 
 	db.InsertW(appConfig.DBPath, w)
 

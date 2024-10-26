@@ -6,6 +6,7 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
+	"github.com/shopspring/decimal"
 
 	"github.com/aceberg/ExerciseDiary/internal/db"
 	"github.com/aceberg/ExerciseDiary/internal/models"
@@ -53,7 +54,7 @@ func saveExerciseHandler(c *gin.Context) {
 	reps := c.PostForm("reps")
 
 	oneEx.ID, _ = strconv.Atoi(id)
-	oneEx.Weight, _ = strconv.Atoi(weight)
+	oneEx.Weight, _ = decimal.NewFromString(weight)
 	oneEx.Reps, _ = strconv.Atoi(reps)
 
 	// log.Println("ONEEX =", oneEx)
