@@ -48,7 +48,7 @@ Configuration can be done through config file or environment variables
 | AUTH_PASSWORD | Encrypted password (bcrypt). [How to encrypt password with bcrypt?](docs/BCRYPT.md) | "" |
 | HOST | Listen address | 0.0.0.0 |
 | PORT   | Port for web GUI | 8851 |
-| THEME | Any theme name from https://bootswatch.com in lowcase or [additional](https://github.com/aceberg/aceberg-bootswatch-fork) (emerald, grass, sand)| grass |
+| THEME | Any theme name from https://bootswatch.com in lowcase or [additional](https://github.com/aceberg/aceberg-bootswatch-fork) (emerald, grass, grayscale, ocean, sand, wood)| grass |
 | COLOR | Background color: light or dark | light |
 | HEATCOLOR | HeatMap color | #03a70c |
 | PAGESTEP | Items on one page | 10 |

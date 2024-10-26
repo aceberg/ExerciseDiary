@@ -2,6 +2,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.1.9] - 2024-10-26
+### Changed
+- All weights are decimal now [#4](https://github.com/aceberg/ExerciseDiary/issues/4)
+
+### Added
+- New themes: grayscale, ocean, wood
+
 ## [0.1.8] - 2024-03-10
 ### Added
 - Login/Password
