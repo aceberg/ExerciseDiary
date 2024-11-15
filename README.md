@@ -38,7 +38,7 @@ PPA for amd64 .deb is [here](https://github.com/aceberg/ppa). For other binary o
 ## Config
 
 
-Configuration can be done through config file or environment variables
+Configuration can be done through config file, GUI or environment variables. Variable names is `config.yaml` file are the same, but in lowcase.
 
 | Variable  | Description | Default |
 | --------  | ----------- | ------- |
